@@ -1,4 +1,4 @@
-package org.theclustermc.hub.player
+package org.theclustermc.hub.utils
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -9,4 +9,6 @@ package org.theclustermc.hub.player
  * permission of the aforementioned owner.
  */
 
-abstract class SettingValue[T](var value: T)
+object CaseInsensitiveOrdered extends Ordering[String] {
+  def compare(x: String, y: String): Int = x.compareToIgnoreCase(y)
+}

@@ -1,4 +1,4 @@
-package org.theclustermc.hub.serverselector;
+package org.theclustermc.hub.bungee;
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
  * 
@@ -9,19 +9,14 @@ package org.theclustermc.hub.serverselector;
  */
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.theclustermc.hub.Hub;
-import org.theclustermc.hub.utils.ItemFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class ServerSelect {
-
-    public static ItemStack stack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack();
+public class ServerTeleport {
 
     /**
      * Teleports a player to a server with no checks
