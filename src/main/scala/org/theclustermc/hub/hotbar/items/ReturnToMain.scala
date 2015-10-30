@@ -4,7 +4,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
-import org.theclustermc.hub.hotbar.pages.{Hotbar, MainHubInventory}
+import org.theclustermc.hub.hotbar.pages.{Hotbar, MainHubHotbar}
 import org.theclustermc.hub.utils.ItemFactory
 
 /*
@@ -24,6 +24,6 @@ class ReturnToMain extends HotbarItem{
 
   override def click(player: Player, action: Action): Unit = {
     if (action.name.contains("RIGHT"))
-      Hotbar.get(classOf[MainHubInventory].getSimpleName).send(player)
+      Hotbar.get(classOf[MainHubHotbar].getSimpleName).send(player)
   }
 }

@@ -11,6 +11,6 @@ import org.theclustermc.hub.hotbar.items.{HotbarItem}
  * permission of the aforementioned owner.
  */
 
-class MainHubInventory extends Hotbar(){
+class MainHubHotbar extends Hotbar(){
 
 }
