@@ -1,10 +1,9 @@
-package org.theclustermc.hub.inventory.items
+package org.theclustermc.hub.hotbar.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
-import org.theclustermc.hub.inventory.pages.{InventorySet, MainHubInventory}
 import org.theclustermc.hub.utils.{CaseInsensitiveOrdered, ItemFactory}
 
 import scala.collection.immutable.TreeMap
@@ -18,19 +17,19 @@ import scala.collection.immutable.TreeMap
  * permission of the aforementioned owner.
  */
 
-abstract class InventoryItem {
+abstract class HotbarItem {
   val stack: ItemStack
   def click(player: Player, action: Action)
 }
-object InventoryItem {
+object HotbarItem {
   val air = new ItemStack(Material.AIR)
 
-  private final val items: Map[String, InventoryItem] = TreeMap(
+  private final val items: Map[String, HotbarItem] = TreeMap(
     classOf[ReturnToMain].getSimpleName -> new ReturnToMain,
     classOf[ServerSelector].getSimpleName -> new ServerSelector
   )(CaseInsensitiveOrdered)
 
-  def get(name: String): InventoryItem = {
+  def get(name: String): HotbarItem = {
     items.get(name).get
   }
 

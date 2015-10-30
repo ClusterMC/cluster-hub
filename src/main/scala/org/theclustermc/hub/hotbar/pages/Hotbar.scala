@@ -1,8 +1,8 @@
-package org.theclustermc.hub.inventory.pages
+package org.theclustermc.hub.hotbar.pages
 
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
-import org.theclustermc.hub.inventory.items.{InventoryItem, ReturnToMain, ServerSelector}
+import org.theclustermc.hub.hotbar.items.{HotbarItem}
 import org.theclustermc.hub.utils.CaseInsensitiveOrdered
 
 import scala.collection.immutable.TreeMap
@@ -16,7 +16,7 @@ import scala.collection.immutable.TreeMap
  * permission of the aforementioned owner.
  */
 
-abstract class InventorySet (val items: Array[InventoryItem]) {
+abstract class Hotbar (val items: Array[HotbarItem]) {
 
   lazy val name: String = this.getClass.getSimpleName
 
@@ -36,12 +36,12 @@ abstract class InventorySet (val items: Array[InventoryItem]) {
 
 }
 
-object InventorySet {
+object Hotbar {
 
-  private final val hotbars: Map[String, InventorySet] = TreeMap(
+  private final val hotbars: Map[String, Hotbar] = TreeMap(
     classOf[MainHubInventory].getSimpleName -> new MainHubInventory
   )(CaseInsensitiveOrdered)
 
-  def get(name: String): InventorySet = hotbars.get(name).get
+  def get(name: String): Hotbar = hotbars.get(name).get
 
 }

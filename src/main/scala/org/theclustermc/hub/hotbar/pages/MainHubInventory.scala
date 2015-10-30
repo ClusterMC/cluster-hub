@@ -1,6 +1,6 @@
-package org.theclustermc.hub.inventory.pages
+package org.theclustermc.hub.hotbar.pages
 
-import org.theclustermc.hub.inventory.items.InventoryItem
+import org.theclustermc.hub.hotbar.items.{HotbarItem}
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -11,6 +11,6 @@ import org.theclustermc.hub.inventory.items.InventoryItem
  * permission of the aforementioned owner.
  */
 
-class MainHubInventory extends InventorySet(InventoryItem.){
+class MainHubInventory extends Hotbar(){
 
 }

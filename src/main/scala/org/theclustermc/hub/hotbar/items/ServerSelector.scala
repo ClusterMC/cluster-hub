@@ -1,4 +1,4 @@
-package org.theclustermc.hub.inventory.items
+package org.theclustermc.hub.hotbar.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -15,7 +15,7 @@ import org.theclustermc.hub.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class ServerSelector extends InventoryItem{
+class ServerSelector extends HotbarItem{
   override val stack: ItemStack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack
 
   override def click(player: Player, action: Action): Unit = ???

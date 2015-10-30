@@ -1,9 +1,8 @@
-package org.theclustermc.hub.inventory.events
+package org.theclustermc.hub.hotbar.events
 
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.{EventHandler, Listener}
-import org.theclustermc.hub.inventory.items.InventoryItem
-import org.theclustermc.hub.inventory.pages.InventorySet
+import org.theclustermc.hub.hotbar.pages.Hotbar
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -24,7 +23,7 @@ class InteractEvent extends Listener{
     event.setCancelled(true)
     val name: String = event.getPlayer.getMetadata("inventory").get(0).asString
     if (name != null && !(name == "")) {
-      InventorySet.get(name).use(event.getPlayer, event.getPlayer.getInventory.getHeldItemSlot, event.getAction)
+      Hotbar.get(name).use(event.getPlayer, event.getPlayer.getInventory.getHeldItemSlot, event.getAction)
     }
   }
 
