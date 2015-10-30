@@ -14,7 +14,7 @@ import scala.collection.mutable.ArrayBuffer
 object Settings {
 
     sealed abstract class Setting[T](val name: String, private val default: T) {
-        private val _default: Option[T] = Option.apply(default)
+        private val _default: Option[T] = Some(default)
         private var _value: Option[T] = None
 
         def value = _value match {
@@ -22,7 +22,7 @@ object Settings {
             case None => _default
         }
 
-        def value_=(x: T): Unit = _value = Option.apply(x)
+        def value_=(x: T): Unit = _value = Some(x)
 
         def shouldSave = value.ne(_default)
 
