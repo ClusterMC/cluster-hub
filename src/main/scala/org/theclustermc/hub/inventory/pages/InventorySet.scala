@@ -18,6 +18,8 @@ import scala.collection.immutable.TreeMap
 
 abstract class InventorySet (val items: Array[InventoryItem]) {
 
+  lazy val name: String = this.getClass.getSimpleName
+
   if(items.length != 9){
     throw ArrayIndexOutOfBoundsException
   }
@@ -36,11 +38,10 @@ abstract class InventorySet (val items: Array[InventoryItem]) {
 
 object InventorySet {
 
-  private final val hotbars: Map[String, InventoryItem] = TreeMap(
-    classOf[ReturnToMain].getSimpleName -> new ReturnToMain,
-    classOf[ServerSelector].getSimpleName -> new ServerSelector
+  private final val hotbars: Map[String, InventorySet] = TreeMap(
+    classOf[MainHubInventory].getSimpleName -> new MainHubInventory
   )(CaseInsensitiveOrdered)
 
-  def get(name: String): InventoryItem = hotbars.get(name).get
+  def get(name: String): InventorySet = hotbars.get(name).get
 
 }

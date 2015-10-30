@@ -24,7 +24,7 @@ class InteractEvent extends Listener{
     event.setCancelled(true)
     val name: String = event.getPlayer.getMetadata("inventory").get(0).asString
     if (name != null && !(name == "")) {
-      InventorySet.get(name.toLowerCase).(event.getPlayer, event.getPlayer.getInventory.getHeldItemSlot, event.getAction)
+      InventorySet.get(name).use(event.getPlayer, event.getPlayer.getInventory.getHeldItemSlot, event.getAction)
     }
   }
 

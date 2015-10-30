@@ -4,6 +4,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
+import org.theclustermc.hub.inventory.pages.{InventorySet, MainHubInventory}
 import org.theclustermc.hub.utils.{CaseInsensitiveOrdered, ItemFactory}
 
 import scala.collection.immutable.TreeMap
@@ -29,7 +30,7 @@ object InventoryItem {
     classOf[ServerSelector].getSimpleName -> new ServerSelector
   )(CaseInsensitiveOrdered)
 
-  def get(name: String) = {
+  def get(name: String): InventoryItem = {
     items.get(name).get
   }
 
