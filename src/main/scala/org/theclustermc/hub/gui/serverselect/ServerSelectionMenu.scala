@@ -1,4 +1,4 @@
-package org.theclustermc.hub.guitest.serverselect
+package org.theclustermc.hub.gui.serverselect
 
 import io.mazenmc.menuapi.menu.Menu
 

@@ -1,4 +1,4 @@
-package org.theclustermc.hub.guitest
+package org.theclustermc.hub.gui
 
 import io.mazenmc.menuapi.items.Item
 import org.bukkit.entity.Player

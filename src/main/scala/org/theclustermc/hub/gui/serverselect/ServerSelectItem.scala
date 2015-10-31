@@ -1,10 +1,10 @@
-package org.theclustermc.hub.guitest.serverselect
+package org.theclustermc.hub.gui.serverselect
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.bukkit.inventory.ItemStack
-import org.theclustermc.hub.guitest.InvItem
+import org.theclustermc.hub.gui.InvItem
 import org.theclustermc.hub.utils.ItemFactory
 
 /*
