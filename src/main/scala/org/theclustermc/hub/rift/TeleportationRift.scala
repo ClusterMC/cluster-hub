@@ -2,10 +2,11 @@ package org.theclustermc.hub.rift
 
 import java.util.UUID
 
-import org.bukkit.{Bukkit, Location}
 import org.bukkit.entity.Player
+import org.bukkit.{Material, Bukkit, Location}
 import org.theclustermc.hub.Hub
 import org.theclustermc.hub.bungee.ServerTeleport
+import org.theclustermc.hub.utils.cooldown.CooldownExecutor
 import org.theclustermc.hub.utils.math.LocationIterator
 
 /*
@@ -18,10 +19,25 @@ import org.theclustermc.hub.utils.math.LocationIterator
  */
 
 object TeleportationRift {
-  private final val openRifts: Map[UUID, (String, List[Location])] = Map()
+  private final val openRifts: Map[UUID, Tuple2[String, List[Location]]] = Map()
+
+  private final val riftCloser: CooldownExecutor = new CooldownExecutor {
+    override def use(player: Player, ability: String): Unit =
+      if(has(player.getUniqueId)){
+        TeleportationRift.get(player.getUniqueId)._2.foreach(_.getBlock.getState.update())
+        remove(player.getUniqueId)
+      }
+  }
 
   def open(player: Player, server: String): Unit = {
-
+    if(!has(player.getUniqueId) && !Hub.instance.cooldowns.isCooling(player.getUniqueId, "rift")){
+      Hub.instance.cooldowns.add(player.getUniqueId, "rift", 7, riftCloser)
+      val blocks: List[Location] = riftLocations(player.getLocation)
+      blocks.foreach(player.sendBlockChange(_, Material.ENDER_PORTAL, 0.toByte))
+      openRifts + (player.getUniqueId -> (server, blocks))
+    }else{
+      player.sendMessage(Hub.instance.msg.get("serverSelector.waitToUse"))
+    }
   }
 
   def use(uuid: UUID): Unit = {

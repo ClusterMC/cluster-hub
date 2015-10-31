@@ -8,14 +8,32 @@ package org.theclustermc.hub.utils.cooldown;
  * permission of the aforementioned owner.
  */
 
+import org.bukkit.entity.Player;
+
 public class Cooldown{
 
     private long startStamp;
     private long endStamp;
+    private CooldownExecutor executor;
 
-    protected Cooldown(int quarterSeconds){
+    /**
+     * @param seconds must be in quarters: 1.0 - 1.25 - 1.5 - 1.75....
+     */
+    protected Cooldown(double seconds){
+        if(seconds % .25 != 0){
+            return;
+        }
         startStamp = System.currentTimeMillis() / 250;
-        endStamp = startStamp + quarterSeconds;
+        endStamp = (long) (startStamp + (seconds / .25));
+    }
+
+    protected Cooldown(double seconds, CooldownExecutor executor){
+        this(seconds);
+        this.executor = executor;
+    }
+
+    protected void execute(Player player, String ability){
+        executor.use(player, ability);
     }
 
     public boolean isFinished(){

@@ -23,13 +23,22 @@ public class CooldownHandler {
         cooldownPlayers = new HashMap<>();
     }
 
-    public void add(UUID player, String ability, int quarterSeconds) {
+    public void add(UUID player, String ability, double seconds, CooldownExecutor executor) {
         if (!cooldownPlayers.containsKey(player)){
-            cooldownPlayers.put(player, new Coolection(player, ability.toLowerCase(), quarterSeconds));
+            cooldownPlayers.put(player, new Coolection(player));
         }else if(isCooling(player, ability)){
             return;
         }
-        cooldownPlayers.get(player).add(ability.toLowerCase(), quarterSeconds);
+        cooldownPlayers.get(player).add(ability.toLowerCase(), seconds, executor);
+    }
+
+    public void add(UUID player, String ability, double seconds){
+        if (!cooldownPlayers.containsKey(player)){
+            cooldownPlayers.put(player, new Coolection(player));
+        }else if(isCooling(player, ability)){
+            return;
+        }
+        cooldownPlayers.get(player).add(ability.toLowerCase(), seconds);
     }
 
     public boolean isCooling(UUID player, String ability) {

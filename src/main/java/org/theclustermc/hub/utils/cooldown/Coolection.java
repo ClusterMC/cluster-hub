@@ -20,15 +20,20 @@ public class Coolection {
     private HashMap<String, Cooldown> cooldowns;
     private UUID uuid;
 
-    protected Coolection(UUID uuid, String cooldown, int seconds){
+    protected Coolection(UUID uuid){
         cooldowns = new HashMap<>();
         this.uuid = uuid;
-        cooldowns.put(cooldown.toLowerCase(), new Cooldown(seconds));
     }
 
-    protected void add(String cooldown, int seconds){
+    protected void add(String cooldown, double seconds){
         if(!isCooling(cooldown)){
             cooldowns.put(cooldown, new Cooldown(seconds));
+        }
+    }
+
+    protected void add(String cooldown, double seconds, CooldownExecutor executor){
+        if(!isCooling(cooldown)){
+            cooldowns.put(cooldown, new Cooldown(seconds, executor));
         }
     }
 
