@@ -3,7 +3,7 @@ package org.theclustermc.hub.gui.serverselect
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
-import org.bukkit.inventory.ItemStack
+import org.theclustermc.hub.bungee.ServerTeleport
 import org.theclustermc.hub.gui.InvItem
 import org.theclustermc.hub.utils.ItemFactory
 
@@ -16,8 +16,10 @@ import org.theclustermc.hub.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object ServerSelectItem extends InvItem{
-  val item = new ItemFactory(Material.GRASS).setDisplayName("Island Battle").getItemStack
+object DevTestItem extends InvItem{
+  val item = new ItemFactory(Material.COMMAND).setDisplayName("Developers Test Server").getItemStack
 
-  override def use(player: Player, clickType: ClickType): Unit = ???
+  override def act(player: Player, clickType: ClickType): Unit = {
+    ServerTeleport.tpToServer(player, "Developer")
+  }
 }

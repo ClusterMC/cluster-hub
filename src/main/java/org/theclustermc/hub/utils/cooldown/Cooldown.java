@@ -8,7 +8,7 @@ package org.theclustermc.hub.utils.cooldown;
  * permission of the aforementioned owner.
  */
 
-public class Cooldown {
+public class Cooldown{
 
     private long startStamp;
     private long endStamp;

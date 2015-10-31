@@ -14,12 +14,7 @@ import org.bukkit.inventory.ItemStack
  * permission of the aforementioned owner.
  */
 
-abstract class InvItem extends Item{
+trait InvItem extends Item{
   val item: ItemStack
   override def stack = item
-
-  override def act(player: Player, clickType: ClickType): Unit = use(player, clickType)
-
-  abstract def use(player: Player, clickType: ClickType): Unit
-
 }

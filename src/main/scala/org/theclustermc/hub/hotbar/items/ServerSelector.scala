@@ -4,6 +4,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
+import org.theclustermc.hub.gui.serverselect.ServerSelectionMenu
 import org.theclustermc.hub.utils.ItemFactory
 
 /*
@@ -18,5 +19,8 @@ import org.theclustermc.hub.utils.ItemFactory
 class ServerSelector extends HotbarItem{
   override val stack: ItemStack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack
 
-  override def click(player: Player, action: Action): Unit = ???
+  override def click(player: Player, action: Action): Unit = {
+    if (action.name.contains("RIGHT"))
+      ServerSelectionMenu.showTo(player)
+  }
 }

@@ -13,7 +13,6 @@ import io.mazenmc.menuapi.menu.Menu
 
 object ServerSelectionMenu extends Menu("Where shall we go?", 27){
 
-setItem(1, ServerSelectItem)//test
-
+setItem(1, 4, SkyWarsItem)
 
 }
