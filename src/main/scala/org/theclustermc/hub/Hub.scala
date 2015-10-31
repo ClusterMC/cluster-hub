@@ -2,6 +2,7 @@ package org.theclustermc.hub
 
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.{BukkitTask}
+import org.theclustermc.hub.lottery.{ShardLottery, ClusterLottery}
 import org.theclustermc.hub.utils.cooldown.CooldownHandler
 import org.theclustermc.hub.utils.{Messages, CustomConfig}
 import org.theclustermc.hub.utils.database.MongoDB
@@ -32,6 +33,9 @@ class Hub extends JavaPlugin{
     _messages = new Messages(new CustomConfig(this.getDataFolder, "lang"))
     _mongoDB = new MongoDB(new CustomConfig(this.getDataFolder, "db").getConfig)
     _cooldowns = new CooldownHandler
+
+    ClusterLottery.startNew()
+    ShardLottery.startNew()
 
     cooldownTask = getServer.getScheduler.runTaskTimerAsynchronously(this, new Runnable {
       override def run(): Unit = _cooldowns.handleCooldowns()
