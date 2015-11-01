@@ -1,10 +1,9 @@
 package org.theclustermc.hub.hotbar.items
 
-import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
-import org.theclustermc.hub.utils.{CaseInsensitiveOrdered, ItemFactory}
+import org.theclustermc.hub.utils.CaseInsensitiveOrdered
 
 import scala.collection.immutable.TreeMap
 
@@ -22,11 +21,10 @@ abstract class HotbarItem {
   def click(player: Player, action: Action)
 }
 object HotbarItem {
-  val air = new ItemStack(Material.AIR)
 
   private final val items: Map[String, HotbarItem] = TreeMap(
-    classOf[ReturnToMain].getSimpleName -> new ReturnToMain,
-    classOf[ServerSelector].getSimpleName -> new ServerSelector
+    ReturnToMain.getClass.getSimpleName -> ReturnToMain,
+    ServerSelector.getClass.getSimpleName -> ServerSelector
   )(CaseInsensitiveOrdered)
 
   def get(name: String): HotbarItem = {

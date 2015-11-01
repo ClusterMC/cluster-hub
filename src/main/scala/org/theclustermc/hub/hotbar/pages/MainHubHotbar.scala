@@ -1,6 +1,6 @@
 package org.theclustermc.hub.hotbar.pages
 
-import org.theclustermc.hub.hotbar.items.{HotbarItem}
+import org.theclustermc.hub.hotbar.items.{Air, ServerSelector}
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -11,6 +11,4 @@ import org.theclustermc.hub.hotbar.items.{HotbarItem}
  * permission of the aforementioned owner.
  */
 
-class MainHubHotbar extends Hotbar(){
-
-}
+object MainHubHotbar extends Hotbar(Array(Air, Air, Air, Air, ServerSelector, Air, Air, Air, Air))

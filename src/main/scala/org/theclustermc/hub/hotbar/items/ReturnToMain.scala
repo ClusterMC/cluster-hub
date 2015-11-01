@@ -16,7 +16,7 @@ import org.theclustermc.hub.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class ReturnToMain extends HotbarItem{
+object ReturnToMain extends HotbarItem{
 
   override val stack: ItemStack = new ItemFactory(Material.COMPASS)
     .setDisplayName("Return To Main Hotbar Menu")
@@ -24,6 +24,6 @@ class ReturnToMain extends HotbarItem{
 
   override def click(player: Player, action: Action): Unit = {
     if (action.name.contains("RIGHT"))
-      Hotbar.get(classOf[MainHubHotbar].getSimpleName).send(player)
+      Hotbar.get(MainHubHotbar.getClass.getSimpleName).send(player)
   }
 }
