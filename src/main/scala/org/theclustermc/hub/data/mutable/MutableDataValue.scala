@@ -4,18 +4,11 @@ import org.theclustermc.hub.data.DataValues.DataValue
 import org.theclustermc.hub.utils.GenericOps
 
 import scala.reflect.ClassTag
+import scala.language.implicitConversions
 
 trait MutableDataValue[T] extends DataValue[T] {
-    def value_=(value: T) = {
+    def value_=(value: T)(implicit tTag: ClassTag[T]) = _value = GenericOps.optionWrap(value)
 
-        var option: Option[T] = None
-        value match {
-            case v: Some[T] => option = v
-            case v: T => option = Option(v)
-            case _ => option = None
-        }
-        _value = option
-    }
 }
 
 class MutableDataValueImpl[T](private[this] override var value: Option[T]) extends MutableDataValue[T] {

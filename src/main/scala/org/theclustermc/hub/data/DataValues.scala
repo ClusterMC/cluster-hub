@@ -1,6 +1,7 @@
 package org.theclustermc.hub.data
 
 import org.bson.Document
+import org.theclustermc.hub.utils.ClosureImplicits
 import org.theclustermc.hub.utils.database.MongoObject
 
 object DataValues {
@@ -34,6 +35,10 @@ object DataValues {
 
         override def load(doc: Document): Unit = ???
 
+        def appendTo(document: Document) = {
+            val thisDoc = toDocument
+            thisDoc.entrySet().forEach(ClosureImplicits.consumer(e => document.append(e.getKey, e.getValue)))
+        }
 
     }
 
