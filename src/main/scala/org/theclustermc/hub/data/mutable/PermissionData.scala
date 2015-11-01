@@ -3,10 +3,10 @@ package org.theclustermc.hub.data.mutable
 import org.theclustermc.hub.data.immutable.ImmutableDataValueImpl
 
 sealed class PermissionData
-(private val _permission: Option[String] = None, private val _has: Option[Boolean] = None)
-    extends ImmutableDataValueImpl[Boolean, String](_has, _permission) with MutableDataValue[Boolean] {
+(private val _identifier: Option[String] = None, private val _has: Option[Boolean] = None)
+    extends ImmutableDataValueImpl[Boolean, String](_has, _identifier) with MutableDataValue[Boolean] {
 
-    def permission = _permission match {
+    def permission = _identifier match {
         case Some(s) => s
         case _ => ""
     }
@@ -19,7 +19,7 @@ sealed class PermissionData
       */
     def has = {
 
-        if(_permission.isEmpty || _permission.get.equals("")) {
+        if(_identifier.isEmpty || _identifier.get.equals("")) {
             true
         } else {
             _value match {
@@ -35,10 +35,10 @@ sealed class PermissionData
 object PermissionData {
 
     def apply[T >: String with Option[String], B >: Boolean with Option[Boolean]]
-    (perm: T, has: B) = {
+    (identifier: T, has: B) = {
         var permOption: Option[String] = None
         var hasOption: Option[Boolean] = None
-        perm match {
+        identifier match {
             case Some(p) => permOption = Option.apply(String.valueOf(p))
             case p => permOption = Option.apply(String.valueOf(p))
             case _ =>
