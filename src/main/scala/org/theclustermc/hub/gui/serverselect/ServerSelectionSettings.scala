@@ -1,7 +1,6 @@
 package org.theclustermc.hub.gui.serverselect
 
 import io.mazenmc.menuapi.menu.Menu
-import org.theclustermc.hub.gui.serverselect.items.SkyWarsItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -12,8 +11,7 @@ import org.theclustermc.hub.gui.serverselect.items.SkyWarsItem
  * permission of the aforementioned owner.
  */
 
-object ServerSelectionMenu extends Menu("Where shall we go?", 27){
-
-setItem(1, 4, SkyWarsItem)
+@Deprecated
+object ServerSelectionSettings extends Menu("Server Login Chooser", 9){
 
 }

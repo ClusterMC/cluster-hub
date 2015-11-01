@@ -1,4 +1,4 @@
-package org.theclustermc.hub.gui.serverselect
+package org.theclustermc.hub.gui.serverselect.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -16,10 +16,10 @@ import org.theclustermc.hub.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object BetaTestItem extends InvItem{
-  val item = new ItemFactory(Material.ANVIL).setDisplayName("Beta-Testing Server").getItemStack
+object DevTestItem extends InvItem{
+  val item = new ItemFactory(Material.COMMAND).setDisplayName("Developers Test Server").getItemStack
 
   override def act(player: Player, clickType: ClickType): Unit = {
-    ServerTeleport.tpToServer(player, "BetaTest")
+    ServerTeleport.tpToServer(player, "Developer")
   }
 }

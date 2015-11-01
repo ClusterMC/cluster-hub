@@ -1,4 +1,4 @@
-package org.theclustermc.hub.gui.serverselect
+package org.theclustermc.hub.gui.serverselect.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
