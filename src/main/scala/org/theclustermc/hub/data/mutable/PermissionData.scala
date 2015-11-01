@@ -28,6 +28,8 @@ sealed class PermissionData
             }
         }
     }
+
+
 }
 
 object PermissionData {
