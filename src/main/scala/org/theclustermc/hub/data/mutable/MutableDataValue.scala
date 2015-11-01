@@ -1,9 +1,11 @@
 package org.theclustermc.hub.data.mutable
 
 import org.theclustermc.hub.data.DataValues.DataValue
+import org.theclustermc.hub.utils.GenericOps
 
-case class MutableDataValue[T](private[this] override var value: Option[T]) extends DataValue[T] {
+import scala.reflect.ClassTag
 
+trait MutableDataValue[T] extends DataValue[T] {
     def value_=(value: T) = {
 
         var option: Option[T] = None
@@ -16,8 +18,14 @@ case class MutableDataValue[T](private[this] override var value: Option[T]) exte
     }
 }
 
+class MutableDataValueImpl[T](private[this] override var value: Option[T]) extends MutableDataValue[T] {
+    _value = value
+}
+
 object MutableDataValue {
 
-    def apply[T](value: T) = new MutableDataValue[T](Option.apply(value))
+    def apply[T: ClassTag](value: T) = {
+        new MutableDataValueImpl(GenericOps.optionWrap(value))
+    }
 }
 

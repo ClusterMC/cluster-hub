@@ -12,8 +12,6 @@ object DataValues {
 
         def value = _value
 
-        def serialize = if(_value.isDefined) Some(_value.toString) else None
-
         def deserialize(t: String) = this
 
         override def getIndex: String = ???
@@ -32,6 +30,8 @@ object DataValues {
             document
         }
 
+        def serialize = if(_value.isDefined) Some(_value.toString) else None
+
         override def load(doc: Document): Unit = ???
 
 
@@ -40,8 +40,6 @@ object DataValues {
     trait DefaultDataValue[T] extends DataValue[T] {
         private[data] val _default: Option[T]
 
-        def isDefault = value.equals(_default)
-
         def print() = {
             println(toDocument.toJson)
         }
@@ -49,5 +47,8 @@ object DataValues {
         override def toDocument: Document = {
             super.toDocument.append("isDefault", isDefault)
         }
+
+        def isDefault = value.equals(_default)
     }
+
 }
