@@ -11,7 +11,7 @@ trait MutableDataValue[T] extends DataValue[T] {
         var option: Option[T] = None
         value match {
             case v: Some[T] => option = v
-            case v: T => option = Option.apply(v)
+            case v: T => option = Option(v)
             case _ => option = None
         }
         _value = option
