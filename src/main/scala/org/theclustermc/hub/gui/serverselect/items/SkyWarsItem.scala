@@ -1,4 +1,4 @@
-package org.theclustermc.hub.gui.serverselect
+package org.theclustermc.hub.gui.serverselect.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -16,10 +16,10 @@ import org.theclustermc.hub.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object CreativeItem extends InvItem{
-  val item = new ItemFactory(Material.DRAGON_EGG).setDisplayName("Mystic Absents Creative").getItemStack
+object SkyWarsItem extends InvItem{
+  val item = new ItemFactory(Material.GRASS).setDisplayName("Island Battle").getItemStack
 
   override def act(player: Player, clickType: ClickType): Unit = {
-    ServerTeleport.tpToServer(player, "Creative")
+    ServerTeleport.tpToServer(player, "SkyWars")
   }
 }

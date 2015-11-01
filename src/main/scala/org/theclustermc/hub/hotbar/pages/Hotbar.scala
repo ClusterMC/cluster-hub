@@ -39,7 +39,7 @@ abstract class Hotbar (val items: Array[HotbarItem]) {
 object Hotbar {
 
   private final val hotbars: Map[String, Hotbar] = TreeMap(
-    classOf[MainHubHotbar].getSimpleName -> new MainHubHotbar
+    MainHubHotbar.getClass.getSimpleName -> MainHubHotbar
   )(CaseInsensitiveOrdered)
 
   def get(name: String): Hotbar = hotbars.get(name).get

@@ -4,7 +4,6 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
-import org.theclustermc.hub.hotbar.pages.{Hotbar, MainHubHotbar}
 import org.theclustermc.hub.utils.ItemFactory
 
 /*
@@ -16,14 +15,15 @@ import org.theclustermc.hub.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object ReturnToMain extends HotbarItem{
-
-  override val stack: ItemStack = new ItemFactory(Material.COMPASS)
-    .setDisplayName("Return To Main Hotbar Menu")
-    .getItemStack
+object PvpToggleSettings extends HotbarItem{
+  override val stack: ItemStack = new ItemFactory(Material.DIAMOND_SWORD)
+    .setDisplayName("PvP Toggle / R-Click for settings").getItemStack
 
   override def click(player: Player, action: Action): Unit = {
-    if (action.name.contains("RIGHT"))
-      Hotbar.get(MainHubHotbar.getClass.getSimpleName).send(player)
+    if(action.name().contains("RIGHT")){
+
+    }else if (action.name().contains("LEFT")){
+
+    }
   }
 }

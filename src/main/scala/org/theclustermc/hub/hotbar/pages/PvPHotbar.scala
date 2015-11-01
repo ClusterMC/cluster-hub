@@ -1,7 +1,5 @@
 package org.theclustermc.hub.hotbar.pages
 
-import org.theclustermc.hub.hotbar.items.{PvpToggleSettings, Air, ServerSelector}
-
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
  * 
@@ -11,4 +9,6 @@ import org.theclustermc.hub.hotbar.items.{PvpToggleSettings, Air, ServerSelector
  * permission of the aforementioned owner.
  */
 
-object MainHubHotbar extends Hotbar(Array(Air, Air, Air, Air, ServerSelector, Air, Air, Air, PvpToggleSettings))
+class PvPHotbar {
+
+}

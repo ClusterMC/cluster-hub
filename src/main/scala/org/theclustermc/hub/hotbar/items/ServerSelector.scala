@@ -16,11 +16,13 @@ import org.theclustermc.hub.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class ServerSelector extends HotbarItem{
+object ServerSelector extends HotbarItem{
   override val stack: ItemStack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack
 
   override def click(player: Player, action: Action): Unit = {
     if (action.name.contains("RIGHT"))
+
+    else if (action.name.contains("LEFT"))
       ServerSelectionMenu.showTo(player)
   }
 }
