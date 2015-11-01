@@ -2,9 +2,9 @@ package org.theclustermc.hub.data.mutable
 
 import org.theclustermc.hub.data.DataValues.DataValue
 
-class MutableDataValue[T](override var value: Option[T]) extends DataValue[T] {
+case class MutableDataValue[T](private[this] override var value: Option[T]) extends DataValue[T] {
 
-    def value_=[V >: T with Option[T]](value: V) = {
+    def value_=(value: T) = {
 
         var option: Option[T] = None
         value match {
