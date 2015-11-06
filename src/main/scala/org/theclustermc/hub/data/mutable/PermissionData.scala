@@ -1,7 +1,6 @@
 package org.theclustermc.hub.data.mutable
 
 import org.theclustermc.hub.data.immutable.ImmutableDataValueImpl
-import org.theclustermc.hub.utils.GenericOps.option
 
 sealed class PermissionData
 (private val _identifier: Option[Symbol] = None, private val _has: Option[Boolean] = None)
@@ -34,6 +33,7 @@ sealed class PermissionData
 }
 
 object PermissionData {
+    import org.theclustermc.hub.utils.GenericOps.option
 
     def apply(identifier: Symbol, has: Boolean) = apply(option(identifier), option(has))
 
