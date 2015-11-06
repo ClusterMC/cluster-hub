@@ -1,6 +1,7 @@
 package org.theclustermc.hub.data.mutable
 
 import org.theclustermc.hub.data.immutable.ImmutableDataValueImpl
+import org.theclustermc.hub.utils.GenericOps.optionWrap
 
 sealed class PermissionData
 (private val _identifier: Option[Symbol] = None, private val _has: Option[Boolean] = None)
@@ -34,22 +35,7 @@ sealed class PermissionData
 
 object PermissionData {
 
-    def apply[T >: Symbol with Option[Symbol], B >: Boolean with Option[Boolean]]
-    (identifier: T, has: B) = {
-        var permOption: Option[Symbol] = None
-        var hasOption: Option[Boolean] = None
-        identifier match {
-            case Some(p: Symbol) => permOption = Option(p)
-            case p: Symbol => permOption = Option(p)
-            case Some(p: String) => permOption = Option(Symbol(p))
-            case p: String => permOption = Option(Symbol(p))
-            case _ =>
-        }
-        has match {
-            case Some(b) => hasOption = Option(b.asInstanceOf[Boolean])
-            case b => hasOption = Option(b.asInstanceOf[Boolean])
-            case _ =>
-        }
-        new PermissionData(permOption, hasOption)
-    }
+    def apply(identifier: Symbol, has: Boolean) = apply(optionWrap(identifier), optionWrap(has))
+
+    def apply(identifier: Option[Symbol], has: Option[Boolean]) = new PermissionData(identifier, has)
 }
