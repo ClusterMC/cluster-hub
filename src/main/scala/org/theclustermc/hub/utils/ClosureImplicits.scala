@@ -1,7 +1,6 @@
 package org.theclustermc.hub.utils
 
 import java.util.function.Consumer
-import scala.language.implicitConversions
 
 object ClosureImplicits {
     /**
