@@ -14,6 +14,6 @@ sealed class SettingData[T](private val d: Option[T], private val v: Option[T] =
 object SettingData {
 
     def apply[T: ClassTag](default: T, value: T = None) = {
-        new SettingData(GenericOps.optionWrap(default), GenericOps.optionWrap(value))
+        new SettingData(GenericOps.option(default), GenericOps.option(value))
     }
 }

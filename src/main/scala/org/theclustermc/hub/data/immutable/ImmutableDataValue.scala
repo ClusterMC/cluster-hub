@@ -26,6 +26,6 @@ class ImmutableDataValueImpl[T, C](private[this] val value: Option[T],
 object ImmutableDataValue {
 
     def apply[T: ClassTag, C: ClassTag](value: T, const: C) = {
-        new ImmutableDataValueImpl(GenericOps.optionWrap(value), GenericOps.optionWrap(const))
+        new ImmutableDataValueImpl(GenericOps.option(value), GenericOps.option(const))
     }
 }

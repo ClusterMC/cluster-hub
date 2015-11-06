@@ -7,7 +7,7 @@ import scala.reflect.ClassTag
 import scala.language.implicitConversions
 
 trait MutableDataValue[T] extends DataValue[T] {
-    def value_=(value: T)(implicit tTag: ClassTag[T]) = _value = GenericOps.optionWrap(value)
+    def value_=(value: T)(implicit tTag: ClassTag[T]) = _value = GenericOps.option(value)
 
 }
 
@@ -18,7 +18,7 @@ class MutableDataValueImpl[T](private[this] override var value: Option[T]) exten
 object MutableDataValue {
 
     def apply[T: ClassTag](value: T) = {
-        new MutableDataValueImpl(GenericOps.optionWrap(value))
+        new MutableDataValueImpl(GenericOps.option(value))
     }
 }
 
