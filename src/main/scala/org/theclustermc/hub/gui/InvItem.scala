@@ -1,8 +1,6 @@
 package org.theclustermc.hub.gui
 
 import io.mazenmc.menuapi.items.Item
-import org.bukkit.entity.Player
-import org.bukkit.event.inventory.ClickType
 import org.bukkit.inventory.ItemStack
 
 /*
