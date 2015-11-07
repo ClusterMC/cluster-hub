@@ -17,7 +17,7 @@ trait DataValue[T] extends MongoObject {
 
     override def getCollection: String = ???
 
-    override def getID: String = ???
+    override def getID: String = name
 
     override def toDocument: Document = {
         val document = new Document()
@@ -31,11 +31,14 @@ trait DataValue[T] extends MongoObject {
 
     def serialize = if(_value.isDefined) Some(_value.toString) else None
 
-    override def load(doc: Document): Unit = ???
+    override def load(doc: Document) = {}
 
     def appendTo(document: Document) = {
         val thisDoc = toDocument
         thisDoc.entrySet().forEach(consumer(e => document.append(e.getKey, e.getValue)))
     }
 
+    def print() = {
+        println(toDocument.toJson)
+    }
 }

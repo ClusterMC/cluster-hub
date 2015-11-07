@@ -3,11 +3,12 @@ package org.theclustermc.hub.rift
 import java.util.UUID
 
 import org.bukkit.entity.Player
-import org.bukkit.{Material, Bukkit, Location}
+import org.bukkit.{Bukkit, Location, Material}
 import org.theclustermc.hub.Hub
 import org.theclustermc.hub.bungee.ServerTeleport
 import org.theclustermc.hub.utils.cooldown.CooldownExecutor
 import org.theclustermc.hub.utils.math.LocationIterator
+import scala.collection.mutable
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -19,7 +20,7 @@ import org.theclustermc.hub.utils.math.LocationIterator
  */
 
 object TeleportationRift {
-  private final val openRifts: Map[UUID, Tuple2[String, List[Location]]] = Map()
+  private final val openRifts: mutable.Map[UUID, (String, List[Location])] = mutable.HashMap()
 
   private final val riftCloser: CooldownExecutor = new CooldownExecutor {
     override def use(player: Player, ability: String): Unit =
@@ -34,24 +35,24 @@ object TeleportationRift {
       Hub.instance.cooldowns.add(player.getUniqueId, "rift", 7, riftCloser)
       val blocks: List[Location] = riftLocations(player.getLocation)
       blocks.foreach(player.sendBlockChange(_, Material.ENDER_PORTAL, 0.toByte))
-      openRifts + (player.getUniqueId -> (server, blocks))
+      openRifts.put(player.getUniqueId, (server, blocks))
     }else{
       player.sendMessage(Hub.instance.msg.get("serverSelector.waitToUse"))
     }
   }
 
   def use(uuid: UUID): Unit = {
-    Bukkit.getScheduler.runTaskLater(Hub.instance, new Nothing() {
-      @Override def run() = {
-        ServerTeleport.tpToServer(Bukkit.getPlayer(uuid), get(uuid)._1)
-        remove(uuid)
-      }
+    Bukkit.getScheduler.runTaskLater(Hub.instance, new Runnable {
+        override def run(): Unit = {
+            ServerTeleport.tpToServer(Bukkit.getPlayer(uuid), get(uuid)._1)
+            remove(uuid)
+        }
     }, 1L)
   }
 
   def get(uuid: UUID) = openRifts.get(uuid).get
   def has(uuid: UUID) = openRifts.contains(uuid)
-  def remove(uuid: UUID)= if(has(uuid)) openRifts - uuid
+  def remove(uuid: UUID)= if(has(uuid)) openRifts.remove(uuid)
 
   def riftLocations(loc: Location): List[Location] = {
     val iter = new LocationIterator(loc.getWorld, loc.toVector, loc.clone.getDirection.setY(0), 0, 4)

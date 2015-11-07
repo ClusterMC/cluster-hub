@@ -15,13 +15,13 @@ import scala.collection.immutable.TreeMap
  * Hub can not be copied and/or distributed without the express
  * permission of the aforementioned owner.
  */
-
+@throws[ArrayIndexOutOfBoundsException]
 abstract class Hotbar (val items: Array[HotbarItem]) {
 
   lazy val name: String = this.getClass.getSimpleName
 
   if(items.length != 9){
-    throw ArrayIndexOutOfBoundsException
+    throw new ArrayIndexOutOfBoundsException
   }
 
   def use(player: Player, slot: Int, action: Action): Unit = {

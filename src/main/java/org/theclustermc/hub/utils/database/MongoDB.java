@@ -3,13 +3,10 @@ package org.theclustermc.hub.utils.database;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
-import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class MongoDB {
-	@Getter
 	private MongoClient client;
-	@Getter
 	private MongoDatabase playerdata;
 	
 	private int port;
@@ -31,4 +28,8 @@ public class MongoDB {
 		client = new MongoClient(new MongoClientURI(path));
 		playerdata = client.getDatabase(database);
 	}
+
+    public MongoClient getClient() {return this.client;}
+
+    public MongoDatabase getPlayerdata() {return this.playerdata;}
 }

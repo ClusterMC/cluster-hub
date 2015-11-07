@@ -35,7 +35,7 @@ sealed class PermissionData
 object PermissionData {
     import org.theclustermc.hub.utils.GenericOps.option
 
-    def apply(identifier: Symbol, has: Boolean) = apply(option(identifier), option(has))
+    def apply(identifier: Symbol, has: Boolean): PermissionData = apply(option(identifier), option(has))
 
     def apply(identifier: Option[Symbol], has: Option[Boolean]) = new PermissionData(identifier, has)
 }

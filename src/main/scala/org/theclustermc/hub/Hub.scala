@@ -47,7 +47,6 @@ class Hub extends JavaPlugin{
     _mongoDB.getClient.close()
     cooldownTask.cancel()
   }
-
 }
 
 object Hub{
