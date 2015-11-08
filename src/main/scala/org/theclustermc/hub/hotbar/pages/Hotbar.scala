@@ -3,7 +3,6 @@ package org.theclustermc.hub.hotbar.pages
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.theclustermc.hub.hotbar.items.{HotbarItem}
-import org.theclustermc.hub.utils.CaseInsensitiveOrdered
 
 import scala.collection.immutable.TreeMap
 
