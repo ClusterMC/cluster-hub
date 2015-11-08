@@ -5,9 +5,9 @@ import java.util.UUID
 import org.bukkit.entity.Player
 import org.bukkit.{Bukkit, Location, Material}
 import org.theclustermc.hub.Hub
-import org.theclustermc.hub.bungee.ServerTeleport
-import org.theclustermc.hub.utils.cooldown.CooldownExecutor
-import org.theclustermc.hub.utils.math.LocationIterator
+import org.theclustermc.lib.bungee.ServerTeleport
+import org.theclustermc.lib.utils.cooldown.CooldownExecutor
+import org.theclustermc.lib.utils.math.LocationIterator
 import scala.collection.mutable
 
 /*
@@ -44,7 +44,7 @@ object TeleportationRift {
   def use(uuid: UUID): Unit = {
     Bukkit.getScheduler.runTaskLater(Hub.instance, new Runnable {
         override def run(): Unit = {
-            ServerTeleport.tpToServer(Bukkit.getPlayer(uuid), get(uuid)._1)
+            ServerTeleport.tpToServer(Hub.instance, Bukkit.getPlayer(uuid), get(uuid)._1)
             remove(uuid)
         }
     }, 1L)

@@ -21,7 +21,8 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.theclustermc.core', name: 'clusterlib', version: "1.+"
+//    compile group: 'org.theclustermc.core', name: 'clusterlib', version: "1.+"
+    compile project(':clusterlib')
 
     compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.6'
     compile group: 'org.scala-lang', name: 'scala-reflect', version: '2.11.6'

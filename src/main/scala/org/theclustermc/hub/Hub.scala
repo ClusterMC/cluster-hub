@@ -1,11 +1,11 @@
 package org.theclustermc.hub
 
 import org.bukkit.plugin.java.JavaPlugin
-import org.bukkit.scheduler.{BukkitTask}
+import org.bukkit.scheduler.BukkitTask
 import org.theclustermc.hub.lottery.{ShardLottery, ClusterLottery}
-import org.theclustermc.hub.utils.cooldown.CooldownHandler
-import org.theclustermc.hub.utils.{Messages, CustomConfig}
-import org.theclustermc.hub.utils.database.MongoDB
+import org.theclustermc.lib.utils.cooldown.CooldownHandler
+import org.theclustermc.lib.utils.{Messages, CustomConfig}
+import org.theclustermc.lib.utils.database.MongoDB
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

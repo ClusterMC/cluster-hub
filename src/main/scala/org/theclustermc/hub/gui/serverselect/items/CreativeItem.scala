@@ -3,9 +3,10 @@ package org.theclustermc.hub.gui.serverselect.items
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
-import org.theclustermc.hub.bungee.ServerTeleport
+import org.theclustermc.hub.Hub
 import org.theclustermc.hub.gui.InvItem
-import org.theclustermc.hub.utils.ItemFactory
+import org.theclustermc.lib.bungee.ServerTeleport
+import org.theclustermc.lib.utils.ItemFactory
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -20,6 +21,6 @@ object CreativeItem extends InvItem{
   val item = new ItemFactory(Material.DRAGON_EGG).setDisplayName("Mystic Absents Creative").getItemStack
 
   override def act(player: Player, clickType: ClickType): Unit = {
-    ServerTeleport.tpToServer(player, "Creative")
+    ServerTeleport.tpToServer(Hub.instance, player, "Creative")
   }
 }

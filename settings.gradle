@@ -1,0 +1,2 @@
+include ':clusterlib'
+project(':clusterlib').projectDir = new File(settingsDir, '../clusterlib')
