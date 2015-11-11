@@ -5,8 +5,8 @@ import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.clustermc.hub.Hub
 import org.clustermc.hub.gui.InvItem
-import org.theclustermc.lib.utils.ItemFactory
-import org.theclustermc.lib.bungee.ServerTeleport
+import org.clustermc.lib.utils.ItemFactory
+import org.clustermc.lib.bungee.ServerTeleport
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

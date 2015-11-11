@@ -5,8 +5,8 @@ import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.hotbar.pages.{Hotbar, MainHubHotbar}
-import org.theclustermc.hub.hotbar.pages.MainHubHotbar
-import org.theclustermc.lib.utils.ItemFactory
+import org.clustermc.hub.hotbar.pages.MainHubHotbar
+import org.clustermc.lib.utils.ItemFactory
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

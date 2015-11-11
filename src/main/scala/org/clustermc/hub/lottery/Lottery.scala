@@ -4,7 +4,7 @@ import java.util.UUID
 
 import org.bukkit.Bukkit
 import org.clustermc.hub.Hub
-import org.theclustermc.lib.utils.WeightedRandomCollection
+import org.clustermc.lib.utils.WeightedRandomCollection
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

@@ -3,7 +3,7 @@ package org.clustermc.hub.gui.settings
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.gui.InvItem
-import org.theclustermc.lib.utils.ItemFactory
+import org.clustermc.lib.utils.ItemFactory
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

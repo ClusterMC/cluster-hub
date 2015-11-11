@@ -5,8 +5,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.gui.serverselect.ServerSelectionMenu
-import ServerSelectionMenu
-import org.theclustermc.lib.utils.ItemFactory
+import org.clustermc.lib.utils.ItemFactory
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

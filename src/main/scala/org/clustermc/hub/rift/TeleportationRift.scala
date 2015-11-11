@@ -5,9 +5,9 @@ import java.util.UUID
 import org.bukkit.entity.Player
 import org.bukkit.{Bukkit, Location, Material}
 import org.clustermc.hub.Hub
-import org.theclustermc.lib.bungee.ServerTeleport
-import org.theclustermc.lib.utils.cooldown.CooldownExecutor
-import org.theclustermc.lib.utils.math.LocationIterator
+import org.clustermc.lib.bungee.ServerTeleport
+import org.clustermc.lib.utils.cooldown.CooldownExecutor
+import org.clustermc.lib.utils.math.LocationIterator
 import scala.collection.mutable
 
 /*
