@@ -1,2 +1,2 @@
-include ':clusterlib'
-project(':clusterlib').projectDir = new File(settingsDir, '../clusterlib')
+include ':cluster-lib'
+project(':cluster-lib').projectDir = new File(settingsDir, '../cluster-lib')
