@@ -1,5 +1,11 @@
 package org.clustermc.hub.player
 
+import java.util.UUID
+
+import org.bson.Document
+import org.clustermc.lib.utils.Coordinator
+import org.clustermc.lib.utils.database.PlayerWrapper
+
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
  * 
@@ -9,9 +15,15 @@ package org.clustermc.hub.player
  * permission of the aforementioned owner.
  */
 
-class HubPlayer {
+class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId){
+  override def toDocument: Document = ???
 
+  override def load(doc: Document): Unit = ???
 }
-object HubPlayer{
+object HubPlayer extends Coordinator[UUID, HubPlayer, UUID]{
+  override def unload(key: UUID): Unit = ???
 
+  override def unloadAll(): Unit = ???
+
+  override def load(load: UUID): Unit = ???
 }
