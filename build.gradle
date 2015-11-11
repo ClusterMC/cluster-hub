@@ -17,12 +17,17 @@ repositories {
     maven{
         url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
     }
+    maven{
+        url = 'http://server.psmc.ca/repo/'
+    }
     mavenLocal()
 }
 
 dependencies {
 //    compile group: 'org.clustermc.core', name: 'clusterlib', version: "1.+"
     compile project(':cluster-lib')
+
+    compile group: 'LibsDisguises', name: 'LibsDisguises', version: '8.6.5-SNAPSHOT'
 
     compile group: 'org.scala-lang', name: 'scala-library', version: '2.11.6'
     compile group: 'org.scala-lang', name: 'scala-reflect', version: '2.11.6'
