@@ -1,6 +1,7 @@
-package org.clustermc.hub.gui.settings
+package org.clustermc.hub.menus.serverselect
 
 import io.mazenmc.menuapi.menu.Menu
+import org.clustermc.hub.menus.serverselect.items.SkyWarsItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -11,9 +12,8 @@ import io.mazenmc.menuapi.menu.Menu
  * permission of the aforementioned owner.
  */
 
-class SettingsMainMenu extends Menu("Cluster Settings", 27){
-/*
-    private boolean USE_RIFT;
-    private boolean ALLOW_MESSAGES;
- */
+object ServerSelectionMenu extends Menu("Where shall we go?", 27){
+
+setItem(1, 4, SkyWarsItem)
+
 }

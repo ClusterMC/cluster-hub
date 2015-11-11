@@ -1,11 +1,11 @@
-package org.clustermc.hub.hotbar.items
+package org.clustermc.hub.hotbar.items.main
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.hotbar.pages.{Hotbar, MainHubHotbar}
-import org.clustermc.hub.hotbar.pages.MainHubHotbar
+import org.clustermc.hub.menus.serverselect.{ServerSelectionMenu, ServerSelectionSettings}
+import org.clustermc.hub.hotbar.items.HotbarItem
 import org.clustermc.lib.utils.ItemFactory
 
 /*
@@ -17,14 +17,13 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object ReturnToMain extends HotbarItem{
-
-  override val stack: ItemStack = new ItemFactory(Material.COMPASS)
-    .setDisplayName("Return To Main Hotbar Menu")
-    .getItemStack
+object ServerSelector extends HotbarItem{
+  override val stack: ItemStack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack
 
   override def click(player: Player, action: Action): Unit = {
     if (action.name.contains("RIGHT"))
-      Hotbar.get(MainHubHotbar.getClass.getSimpleName).send(player)
+      ServerSelectionSettings.showTo(player)
+    else if (action.name.contains("LEFT"))
+      ServerSelectionMenu.showTo(player)
   }
 }

@@ -1,8 +1,8 @@
-package org.clustermc.hub.gui.settings
+package org.clustermc.hub.menus.settings.items
 
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.gui.InvItem
+import org.clustermc.hub.menus.InvItem
 import org.clustermc.lib.utils.ItemFactory
 
 /*

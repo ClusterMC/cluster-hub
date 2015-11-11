@@ -1,5 +1,7 @@
 package org.clustermc.hub.hotbar.pages
 
+import org.clustermc.hub.hotbar.items.misc.{ReturnToMain, Air}
+
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
  * 
@@ -9,6 +11,4 @@ package org.clustermc.hub.hotbar.pages
  * permission of the aforementioned owner.
  */
 
-class PvPHotbar {
-
-}
+object PvPHotbar extends Hotbar(Array(ReturnToMain, Air, Air, Air, Air, Air, Air, Air, Air))

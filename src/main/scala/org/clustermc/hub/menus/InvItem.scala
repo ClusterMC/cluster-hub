@@ -1,4 +1,4 @@
-package org.clustermc.hub.gui
+package org.clustermc.hub.menus
 
 import io.mazenmc.menuapi.items.Item
 import org.bukkit.inventory.ItemStack

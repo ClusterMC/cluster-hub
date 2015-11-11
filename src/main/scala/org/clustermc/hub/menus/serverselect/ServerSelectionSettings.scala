@@ -1,6 +1,8 @@
-package org.clustermc.hub.gui.serverselect
+package org.clustermc.hub.menus.serverselect
 
 import io.mazenmc.menuapi.menu.Menu
+import org.clustermc.hub.menus.serverselect.items.serversettings.{SkyWarsItem, Hub}
+import org.theclustermc.hub.gui.serverselect.Done
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -11,7 +13,8 @@ import io.mazenmc.menuapi.menu.Menu
  * permission of the aforementioned owner.
  */
 
-@Deprecated
+@Done
 object ServerSelectionSettings extends Menu("Server Login Chooser", 9){
-
+  setItem(3, Hub)
+  setItem(7, SkyWarsItem)
 }

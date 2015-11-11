@@ -1,10 +1,10 @@
-package org.clustermc.hub.gui.serverselect.items
+package org.clustermc.hub.menus.serverselect.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.clustermc.hub.Hub
-import org.clustermc.hub.gui.InvItem
+import org.clustermc.hub.menus.InvItem
 import org.clustermc.lib.bungee.ServerTeleport
 import org.clustermc.lib.utils.ItemFactory
 
@@ -17,10 +17,10 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object BetaTestItem extends InvItem{
-  val item = new ItemFactory(Material.ANVIL).setDisplayName("Beta-Testing Server").getItemStack
+object PrivateCreativeItem extends InvItem{
+  val item = new ItemFactory(Material.GRASS).setDisplayName("Mystic Absents Private").getItemStack
 
   override def act(player: Player, clickType: ClickType): Unit = {
-    ServerTeleport.tpToServer(Hub.instance, player, "BetaTest")
+    ServerTeleport.tpToServer(Hub.instance, player, "MysticAbsents")
   }
 }

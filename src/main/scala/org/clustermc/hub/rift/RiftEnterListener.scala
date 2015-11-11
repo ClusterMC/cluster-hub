@@ -6,6 +6,7 @@ import org.bukkit.Bukkit
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.{EventHandler, Listener}
 import org.clustermc.hub.Hub
+import org.theclustermc.hub.gui.serverselect.Done
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -15,7 +16,7 @@ import org.clustermc.hub.Hub
  * Hub can not be copied and/or distributed without the express
  * permission of the aforementioned owner.
  */
-
+@Done
 class RiftEnterListener extends Listener{
   Bukkit.getServer.getPluginManager.registerEvents(this, Hub.instance)
 

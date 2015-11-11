@@ -1,8 +1,8 @@
-package org.clustermc.hub.gui.settings
+package org.clustermc.hub.menus.settings.items
 
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.gui.InvItem
+import org.clustermc.hub.menus.InvItem
 import org.clustermc.lib.utils.ItemFactory
 
 /*
@@ -14,9 +14,9 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class UseRift(value: Boolean) extends InvItem{
+class ChatMention(value: Boolean) extends InvItem{
   override val item: ItemStack = new ItemFactory(Material.SIGN)
-    .setDisplayName("Turn Selector Rift " +  (if(value) "&a&lON" else "&c&lOFF"))
+    .setDisplayName("Turn Chat Mentions " +  (if(value) "&a&lON" else "&c&lOFF"))
     .getItemStack
 
 }

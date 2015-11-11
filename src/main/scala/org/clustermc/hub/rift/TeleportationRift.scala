@@ -8,6 +8,7 @@ import org.clustermc.hub.Hub
 import org.clustermc.lib.bungee.ServerTeleport
 import org.clustermc.lib.utils.cooldown.CooldownExecutor
 import org.clustermc.lib.utils.math.LocationIterator
+import org.theclustermc.hub.gui.serverselect.Done
 import scala.collection.mutable
 
 /*
@@ -19,6 +20,7 @@ import scala.collection.mutable
  * permission of the aforementioned owner.
  */
 
+@Done
 object TeleportationRift {
   private final val openRifts: mutable.Map[UUID, (String, List[Location])] = mutable.HashMap()
 

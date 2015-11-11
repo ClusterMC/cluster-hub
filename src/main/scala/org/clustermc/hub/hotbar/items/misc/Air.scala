@@ -1,9 +1,10 @@
-package org.clustermc.hub.hotbar.items
+package org.clustermc.hub.hotbar.items.misc
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
+import org.clustermc.hub.hotbar.items.HotbarItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

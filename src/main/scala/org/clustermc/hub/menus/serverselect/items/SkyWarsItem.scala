@@ -1,10 +1,10 @@
-package org.clustermc.hub.gui.serverselect.items
+package org.clustermc.hub.menus.serverselect.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.clustermc.hub.Hub
-import org.clustermc.hub.gui.InvItem
+import org.clustermc.hub.menus.InvItem
 import org.clustermc.lib.bungee.ServerTeleport
 import org.clustermc.lib.utils.ItemFactory
 
