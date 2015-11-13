@@ -20,6 +20,4 @@ class SettingsMenu(player: Player) extends Menu("Cluster Settings", 27){
     private boolean ALLOW_MESSAGES;
  */
 
-  showTo(player)
-
 }

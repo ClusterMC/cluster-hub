@@ -20,12 +20,17 @@ repositories {
     maven{
         url = 'http://server.psmc.ca/repo/'
     }
+    maven{
+        url = 'http://repo.dmulloy2.net/content/groups/public/'
+    }
     mavenLocal()
 }
 
 dependencies {
 //    compile group: 'org.clustermc.core', name: 'clusterlib', version: "1.+"
     compile project(':cluster-lib')
+
+    compile group: 'com.comphenix.protocol', name: 'ProtocolLib', version: '3.6.4'
 
     compile group: 'LibsDisguises', name: 'LibsDisguises', version: '8.6.5-SNAPSHOT'
 

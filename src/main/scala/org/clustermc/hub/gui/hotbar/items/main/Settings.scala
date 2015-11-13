@@ -6,7 +6,7 @@ import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.gui.hotbar.items.HotbarItem
 import org.clustermc.hub.gui.menu.settings.SettingsMenu
-import org.clustermc.lib.utils.ItemFactory
+import org.clustermc.lib.utils.{Done, ItemFactory}
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -21,7 +21,5 @@ object Settings extends HotbarItem {
   override val stack: ItemStack = new ItemFactory(Material.COMMAND)
     .setDisplayName("Server Settings").getItemStack
 
-  override def click(player: Player, action: Action): Unit = {
-    new SettingsMenu(player)
-  }
+  override def click(player: Player, action: Action): Unit = new SettingsMenu(player).showTo(player)
 }

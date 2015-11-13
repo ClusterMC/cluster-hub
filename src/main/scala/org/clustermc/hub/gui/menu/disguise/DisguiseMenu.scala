@@ -1,5 +1,6 @@
-package org.clustermc.hub.gui.menu.settings.items
+package org.clustermc.hub.gui.menu.disguise
 
+import io.mazenmc.menuapi.menu.Menu
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.gui.menu.InvItem
@@ -14,10 +15,10 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class ReceiveMessages(value: Boolean) extends InvItem{
-   override val item: ItemStack = new ItemFactory(Material.SIGN)
-     .setDisplayName("Turn Messages " +  (if(value) "&a&lON" else "&c&lOFF"))
-     .setLore(0,"Toggle letting other players /msg you")
-     .getItemStack
+class DisguiseMenu extends Menu("Turn Into Your Favorite Creature", 27){
 
- }
+  setItem(0, new InvItem {
+    override val item: ItemStack = new ItemFactory(Material.EGG)
+  })
+
+}
