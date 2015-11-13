@@ -18,7 +18,7 @@ import org.clustermc.lib.utils.database.PlayerWrapper
 
 class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId){
 
-  val loginServer: SettingData[String] = SettingData("Hub", "Hub")
+  val loginServer: SettingData[String] = SettingData("Hub", "Hub", classOf[String])
 
   override def toDocument: Document = ???
 
