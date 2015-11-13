@@ -2,8 +2,8 @@ package org.clustermc.hub
 
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitTask
-import org.clustermc.hub.lottery.{ShardLottery, ClusterLottery}
-import org.clustermc.hub.lottery.ShardLottery
+import org.clustermc.hub.features.lottery.{ShardLottery, ClusterLottery}
+import org.clustermc.hub.features.lottery.ShardLottery
 import org.clustermc.lib.utils.cooldown.CooldownHandler
 import org.clustermc.lib.utils.{Messages, CustomConfig}
 import org.clustermc.lib.utils.database.MongoDB
