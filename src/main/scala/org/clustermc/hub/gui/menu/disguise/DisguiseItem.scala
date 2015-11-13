@@ -15,7 +15,7 @@ import org.clustermc.hub.gui.menu.InvItem
  */
 
 class DisguiseItem() extends InvItem{
-  override val item: ItemStack = _
+  override val item: ItemStack = null
 
   override def act(player: Player, clickType: ClickType): Unit = super.act(player, clickType)
 }
