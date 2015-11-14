@@ -18,7 +18,7 @@ import org.clustermc.lib.utils.ItemFactory
 class DisguiseMenu extends Menu("Turn Into Your Favorite Creature", 27){
 
   setItem(0, new InvItem {
-    override val item: ItemStack = new ItemFactory(Material.EGG)
+    override val item: ItemStack = new ItemFactory(Material.EGG).getItemStack
   })
 
 }
