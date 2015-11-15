@@ -11,6 +11,8 @@ package org.clustermc.hub;
 import lombok.Getter;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.clustermc.lib.utils.ItemFactory;
 
 public
 @Getter
@@ -241,14 +243,21 @@ enum DisguiseEnum {
           DisguiseType.SQUID);
 
     private String       name;
-    private Material     datavalue;
+    private Material material;
     private int          cost;
     private DisguiseType type;
 
-    DisguiseEnum(String name, Material datavalue, int cost, DisguiseType type) {
+    DisguiseEnum(String name, Material material, int cost, DisguiseType type) {
         this.name = name;
-        this.datavalue = datavalue;
+        this.material = material;
         this.cost = cost;
         this.type = type;
+    }
+
+    public ItemStack itemstack(){
+        return new ItemFactory(getMaterial())
+                .setDisplayName(getName())
+                .setLore(0,this.name())
+                .getItemStack();
     }
 }

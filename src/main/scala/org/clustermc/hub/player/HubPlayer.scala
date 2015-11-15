@@ -24,10 +24,10 @@ class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId) with MongoObject
 
   val loginServer: SettingData[String] = SettingData("Hub", "Hub", classOf[String])
   val chatMention, useRift, showPlayers, receiveMessages = BooleanSetting(true, true)
-
-  val boughtDisguises = new MutableListDataValueImpl[DisguiseEnum](
+  val boughtDisguises = new DisguisePurchaseManager
+  /*val boughtDisguises = new MutableListDataValueImpl[DisguiseEnum](
     Option(ArrayBuffer(Option(DisguiseEnum))),
-    classOf[DisguiseEnum])
+    classOf[DisguiseEnum])*/
 
   var pvpClass: PvPClass = PvPClass.TANK
 
