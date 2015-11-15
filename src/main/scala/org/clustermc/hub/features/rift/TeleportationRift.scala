@@ -43,7 +43,7 @@ object TeleportationRift {
     }
   }
 
-  def use(uuid: UUID): Unit = {
+  private[rift] def use(uuid: UUID): Unit = {
     Bukkit.getScheduler.runTaskLater(Hub.instance, new Runnable {
         override def run(): Unit = {
             ServerTeleport.tpToServer(Hub.instance, Bukkit.getPlayer(uuid), get(uuid)._1)
@@ -56,7 +56,7 @@ object TeleportationRift {
   def has(uuid: UUID) = openRifts.contains(uuid)
   def remove(uuid: UUID)= if(has(uuid)) openRifts.remove(uuid)
 
-  def riftLocations(loc: Location): List[Location] = {
+  private def riftLocations(loc: Location): List[Location] = {
     val iter = new LocationIterator(loc.getWorld, loc.toVector, loc.clone.getDirection.setY(0), 0, 4)
     val finalBlocks: List[Location] = List()
     while(iter.hasNext) finalBlocks.::(iter.next().subtract(0,1,0))

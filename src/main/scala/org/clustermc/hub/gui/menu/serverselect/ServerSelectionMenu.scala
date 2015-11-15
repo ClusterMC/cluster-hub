@@ -1,7 +1,7 @@
 package org.clustermc.hub.gui.menu.serverselect
 
 import io.mazenmc.menuapi.menu.Menu
-import org.clustermc.hub.gui.menu.serverselect.items.SkyWarsItem
+import org.clustermc.hub.gui.menu.serverselect.items.servers.SkyWarsItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

@@ -3,7 +3,7 @@ package org.clustermc.hub.player
 import java.util.UUID
 
 import org.bson.Document
-import org.clustermc.lib.data.mutable.SettingData
+import org.clustermc.lib.data.mutable.{BooleanSetting, SettingData}
 import org.clustermc.lib.utils.Coordinator
 import org.clustermc.lib.utils.database.PlayerWrapper
 
@@ -19,6 +19,7 @@ import org.clustermc.lib.utils.database.PlayerWrapper
 class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId){
 
   val loginServer: SettingData[String] = SettingData("Hub", "Hub", classOf[String])
+  val chatMention, useRift, showPlayers, receiveMessages = BooleanSetting(true, true)
 
   override def toDocument: Document = ???
 

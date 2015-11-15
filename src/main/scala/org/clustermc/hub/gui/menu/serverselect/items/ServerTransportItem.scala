@@ -1,12 +1,12 @@
 package org.clustermc.hub.gui.menu.serverselect.items
 
-import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.clustermc.hub.Hub
+import org.clustermc.hub.features.rift.TeleportationRift
 import org.clustermc.hub.gui.menu.InvItem
+import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.bungee.ServerTeleport
-import org.clustermc.lib.utils.ItemFactory
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -17,10 +17,13 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object CreativeItem extends InvItem{
-  val item = new ItemFactory(Material.DRAGON_EGG).setDisplayName("Mystic Absents Creative").getItemStack
+abstract class ServerTransportItem(server: String) extends InvItem{
 
   override def act(player: Player, clickType: ClickType): Unit = {
-    ServerTeleport.tpToServer(Hub.instance, player, "Creative")
+    if(HubPlayer.get(player.getUniqueId).useRift.value.get)
+      TeleportationRift.open(player, server)
+    else
+      ServerTeleport.tpToServer(Hub.instance, player, server)
   }
+
 }

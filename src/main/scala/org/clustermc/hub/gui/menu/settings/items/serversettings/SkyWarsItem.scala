@@ -1,12 +1,13 @@
-package org.clustermc.hub.gui.menu.serverselect.items
+package org.clustermc.hub.gui.menu.settings.items.serversettings
+
+import java.util
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
-import org.clustermc.hub.Hub
 import org.clustermc.hub.gui.menu.InvItem
+import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.utils.ItemFactory
-import org.clustermc.lib.bungee.ServerTeleport
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -17,10 +18,12 @@ import org.clustermc.lib.bungee.ServerTeleport
  * permission of the aforementioned owner.
  */
 
-object DevTestItem extends InvItem{
-  val item = new ItemFactory(Material.COMMAND).setDisplayName("Developers Test Server").getItemStack
+object SkyWarsItem extends InvItem{
+  val item = new ItemFactory(Material.GRASS).setDisplayName("Island Battle").setLore(new util.ArrayList[String](
+    util.Arrays.asList("Select Island Battle Server", "As your server to login to when", "You connect to our server")))
+    .getItemStack
 
   override def act(player: Player, clickType: ClickType): Unit = {
-    ServerTeleport.tpToServer(Hub.instance, player, "Developer")
+    HubPlayer.get(player.getUniqueId).loginServer.value = "SkyWars"
   }
 }

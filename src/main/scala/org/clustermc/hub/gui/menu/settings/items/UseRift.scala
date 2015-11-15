@@ -1,8 +1,11 @@
 package org.clustermc.hub.gui.menu.settings.items
 
 import org.bukkit.Material
+import org.bukkit.entity.Player
+import org.bukkit.event.inventory.ClickType
 import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.gui.menu.InvItem
+import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.utils.ItemFactory
 
 /*
@@ -16,8 +19,12 @@ import org.clustermc.lib.utils.ItemFactory
 
 class UseRift(value: Boolean) extends InvItem{
   override val item: ItemStack = new ItemFactory(Material.SIGN)
-    .setDisplayName("Turn Selector Rift " +  (if(value) "&a&lON" else "&c&lOFF"))
+    .setDisplayName("Turn Selector Rift " +  (if(!value) "&a&lON" else "&c&lOFF"))
     .setLore(0,"Toggle the rift that appears in the floor when you use your compass")
     .getItemStack
+
+  override def act(player: Player, clickType: ClickType): Unit = {
+    HubPlayer.get(player.getUniqueId).useRift.value = !value
+  }
 
 }

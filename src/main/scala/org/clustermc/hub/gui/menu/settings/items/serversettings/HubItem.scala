@@ -1,11 +1,12 @@
-package org.clustermc.hub.gui.menu.serverselect.items
+package org.clustermc.hub.gui.menu.settings.items.serversettings
+
+import java.util
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
-import org.clustermc.hub.Hub
 import org.clustermc.hub.gui.menu.InvItem
-import org.clustermc.lib.bungee.ServerTeleport
+import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.utils.ItemFactory
 
 /*
@@ -17,10 +18,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object BetaTestItem extends InvItem{
-  val item = new ItemFactory(Material.ANVIL).setDisplayName("Beta-Testing Server").getItemStack
+object HubItem extends InvItem{
+  val item = new ItemFactory(Material.MINECART).setDisplayName("Server Lobby").setLore(new util.ArrayList[String](
+    util.Arrays.asList("Select The Lobby/Hub Server", "As your server to login to when", "You connect to our server")))
+    .getItemStack
 
   override def act(player: Player, clickType: ClickType): Unit = {
-    ServerTeleport.tpToServer(Hub.instance, player, "BetaTest")
+    HubPlayer.get(player.getUniqueId).loginServer.value = "Hub"
   }
 }
