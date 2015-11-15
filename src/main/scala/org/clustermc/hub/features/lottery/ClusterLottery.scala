@@ -2,6 +2,8 @@ package org.clustermc.hub.features.lottery
 
 import java.util.UUID
 
+import org.clustermc.hub.player.HubPlayer
+
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
  * 
@@ -14,7 +16,11 @@ import java.util.UUID
 object ClusterLottery extends Lottery{
   override val minutes: Int = 60 * 24
 
-  override def giveRewardTo(winner: UUID): Unit = ???
+  override def giveRewardTo(winner: UUID): Unit = {
+    HubPlayer.get(winner).bank.getClusterWallet.deposit(lottery.getTotal)
+  }
 
-  override def sendMessages(): Unit = ???
+  override def sendMessages(): Unit = {
+
+  }
 }

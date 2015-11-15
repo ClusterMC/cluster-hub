@@ -2,11 +2,11 @@ package org.clustermc.hub
 
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.scheduler.BukkitTask
-import org.clustermc.hub.features.lottery.{ShardLottery, ClusterLottery}
-import org.clustermc.hub.features.lottery.ShardLottery
+import org.clustermc.hub.features.lottery.{ClusterLottery, ShardLottery}
+import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.utils.cooldown.CooldownHandler
-import org.clustermc.lib.utils.{Messages, CustomConfig}
 import org.clustermc.lib.utils.database.MongoDB
+import org.clustermc.lib.utils.{CustomConfig, Messages}
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -44,6 +44,7 @@ class Hub extends JavaPlugin{
   }
 
   override def onDisable(): Unit ={
+    HubPlayer.unloadAll()
     Hub._instance = null
     _mongoDB.getClient.close()
     cooldownTask.cancel()

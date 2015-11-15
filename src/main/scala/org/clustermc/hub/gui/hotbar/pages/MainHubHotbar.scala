@@ -1,6 +1,6 @@
 package org.clustermc.hub.gui.hotbar.pages
 
-import org.clustermc.hub.gui.hotbar.items.main.{Settings, Disguises, PvpToggle, ServerSelector}
+import org.clustermc.hub.gui.hotbar.items.main._
 import org.clustermc.hub.gui.hotbar.items.misc.Air
 
 /*
@@ -12,4 +12,4 @@ import org.clustermc.hub.gui.hotbar.items.misc.Air
  * permission of the aforementioned owner.
  */
 
-object MainHubHotbar extends Hotbar(Array(Settings, Air, Disguises, Air, ServerSelector, Air, Air, Air, PvpToggle))
+object MainHubHotbar extends Hotbar(Array(Settings, Air, FunStuff, Air, ServerSelector, Air, Air, Air, PvpToggle))

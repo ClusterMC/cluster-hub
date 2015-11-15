@@ -1,10 +1,11 @@
 package org.clustermc.hub.gui.menu.disguise
 
+import java.util.UUID
+
 import io.mazenmc.menuapi.menu.Menu
-import org.bukkit.Material
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.gui.menu.InvItem
-import org.clustermc.lib.utils.ItemFactory
+import org.clustermc.hub.gui.menu.SubMenuInvItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -15,10 +16,16 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class DisguiseMenu extends Menu("Turn Into Your Favorite Creature", 27){
+class DisguiseMenu(player: Player) extends Menu("Turn Into Your Favorite Creature", 27){
 
-  setItem(0, new InvItem {
-    override val item: ItemStack = new ItemFactory(Material.EGG).getItemStack
+  //Horses
+  setItem(0, new SubMenuInvItem {
+    override def menu(player: Player): Menu =
+    override def canOpen(uuid: UUID): Boolean = true
+    override val item: ItemStack = _
   })
+
+  //Zombies
+
 
 }
