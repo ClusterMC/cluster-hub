@@ -1,4 +1,0 @@
-rootProject.name = 'hub'
-
-include ':cluster-lib'
-project(':cluster-lib').projectDir = new File(settingsDir, '../cluster-lib')
