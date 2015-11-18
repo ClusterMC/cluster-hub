@@ -18,41 +18,39 @@ import org.clustermc.lib.utils.StringUtil
 //TODO Cleanup
 class ChatListener extends Listener {
 
-  @throws[RuntimeException]
-  @EventHandler(priority = EventPriority.HIGHEST)
-  def asyncChat(event: AsyncPlayerChatEvent): Unit = {
-    val player = event.getPlayer
-    val playerData = HubPlayer.get(player.getUniqueId).channelStorage
-    var focused = playerData.focusedChannel
-    if(focused.isEmpty || !focused.get.canSend(player)) {
-      focused = Channel.get("general")
-      playerData.setFocusedChannel(focused)
-      if(focused.isEmpty || !focused.get.canSend(player)) {
-        event.setFormat(s"${event.getFormat.replace("{channel)}", "")}")
-        return
-      }
-    }
-    if(event.getFormat.contains("{channel}")) {
-      event.setFormat(event.getFormat.replace("{channel}",
-        s"${StringUtil.colorString(focused.get.color)}${
-          if(focused.get.prefix.equals(""))
-            focused.get.name
-          else
-            focused.get.prefix
-        }${ChatColor.RESET}"))
-    } else {
-      event.setFormat(s"${ChatColor.GOLD}${focused.get.name}${ChatColor.RESET}${event.getFormat}")
-    }
+    @throws[RuntimeException]
+    @EventHandler(priority = EventPriority.HIGHEST)
+    def asyncChat(event: AsyncPlayerChatEvent): Unit = {
+        val player = event.getPlayer
+        val playerData = HubPlayer.get(player.getUniqueId).channelStorage
+        val focused = playerData.focusedChannel
 
-    //strip players
-    val r = event.getRecipients
-    val iter = r.iterator()
-    while(iter.hasNext) {
-      val p = iter.next()
-      val data = HubPlayer.get(p.getUniqueId).channelStorage
-      if(!data.isSubscribed(focused.get)) {
-        iter.remove()
-      }
+        focused match {
+            case None | Some(pData) if !pData.canSend(player) =>
+                playerData.setFocusedChannel(Channel.get("general"))
+        }
+        playerData.focusedChannel match {
+            case None | Some(pD) if !pD.canSend(player) =>
+                event.setFormat(s"${event.getFormat.replace("{channel)}", "") }")
+                return
+        }
+
+        val _focused = focused.get
+        if(event.getFormat.contains("{channel}")) {
+            val format = s"${StringUtil.colorString(_focused.color)}${_focused.prefixOrName}${ChatColor.RESET}"
+            event.setFormat(event.getFormat.replace("{channel}", format))
+        } else {
+            event.setFormat(s"${ChatColor.GOLD }${_focused.name }${ChatColor.RESET }${event.getFormat }")
+        }
+
+        //strip players
+        val iter = event.getRecipients.iterator()
+        while(iter.hasNext) {
+            val p = iter.next()
+            val data = HubPlayer.get(p.getUniqueId).channelStorage
+            if(!data.isSubscribed(_focused)) {
+                iter.remove()
+            }
+        }
     }
-  }
 }

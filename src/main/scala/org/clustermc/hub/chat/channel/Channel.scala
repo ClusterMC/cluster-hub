@@ -31,6 +31,13 @@ class Channel(val name: String, val isPublic: Boolean = false,
 
   @transient val members = new collection.mutable.LinkedHashSet[UUID]()
 
+    def prefixOrName = {
+        prefix match {
+            case "" => name
+            case _ => prefix
+        }
+    }
+
   def canSend(player: Player): Boolean = isPublic || player.hasPermission(sendPermission)
   def canReceive(player: Player): Boolean = isPublic || player.hasPermission(receivePermission)
   def canJoin(player: Player): Boolean = isPublic || player.hasPermission(joinPermission)

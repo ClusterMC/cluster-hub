@@ -22,7 +22,7 @@ class ChannelStorage(val player: Player) {
             (_focusedChannel.isDefined && _focusedChannel.get.canReceive(player))
     }
 
-    def subscribe(cObject: Option[_ >: String with Channel]): Unit = {
+    def subscribe(cObject: Option[_ <: String with Channel]): Unit = {
         if(cObject.isDefined) {
             cObject.get match {
                 case s: String =>
@@ -43,7 +43,7 @@ class ChannelStorage(val player: Player) {
         setFocusedChannel(channel)
     }
 
-    def unsubscribe(cObject: Option[_ >: String with Channel]): Unit = {
+    def unsubscribe(cObject: Option[_ <: String with Channel]): Unit = {
         if(cObject.isDefined) {
             cObject.get match {
                 case s: String =>
