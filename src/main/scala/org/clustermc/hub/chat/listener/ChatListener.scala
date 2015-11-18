@@ -15,7 +15,6 @@ import org.clustermc.lib.utils.StringUtil
  * Hub can not be copied and/or distributed without the express
  * permission of the aforementioned owner.
  */
-//TODO Cleanup
 class ChatListener extends Listener {
 
     @throws[RuntimeException]
@@ -25,19 +24,17 @@ class ChatListener extends Listener {
         val playerData = HubPlayer.get(player.getUniqueId).channelStorage
         val focused = playerData.focusedChannel
 
-        focused match {
-            case None | Some(pData) if !pData.canSend(player) =>
-                playerData.setFocusedChannel(Channel.get("general"))
+        if(focused.isEmpty || !focused.get.canSend(player)) {
+            playerData.setFocusedChannel(Channel.get("general"))
         }
-        playerData.focusedChannel match {
-            case None | Some(pD) if !pD.canSend(player) =>
-                event.setFormat(s"${event.getFormat.replace("{channel)}", "") }")
-                return
+        if(focused.isEmpty || !focused.get.canSend(player)) {
+            event.setFormat(s"${event.getFormat.replace("{channel)}", "") }")
+            return
         }
 
         val _focused = focused.get
         if(event.getFormat.contains("{channel}")) {
-            val format = s"${StringUtil.colorString(_focused.color)}${_focused.prefixOrName}${ChatColor.RESET}"
+            val format = s"${StringUtil.colorString(_focused.color) }${_focused.prefixOrName }${ChatColor.RESET }"
             event.setFormat(event.getFormat.replace("{channel}", format))
         } else {
             event.setFormat(s"${ChatColor.GOLD }${_focused.name }${ChatColor.RESET }${event.getFormat }")
