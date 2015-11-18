@@ -8,15 +8,12 @@ package org.clustermc.hub;
  * permission of the aforementioned owner.
  */
 
-import lombok.Getter;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.clustermc.lib.utils.ItemFactory;
 
-public
-@Getter
-enum DisguiseEnum {
+public enum DisguiseEnum {
     PIG("Bacon",
         Material.GRILLED_PORK,
         200,
@@ -260,4 +257,12 @@ enum DisguiseEnum {
                 .setLore(0, this.name())
                 .getItemStack();
     }
+
+    public String getName() {return this.name;}
+
+    public Material getMaterial() {return this.material;}
+
+    public int getCost() {return this.cost;}
+
+    public DisguiseType getType() {return this.type;}
 }
