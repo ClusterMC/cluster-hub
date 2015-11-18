@@ -13,15 +13,15 @@ import org.clustermc.hub.player.HubPlayer
  * permission of the aforementioned owner.
  */
 
-object ShardLottery extends Lottery{
+object ShardLottery extends Lottery {
 
-  override val minutes: Int = 60
+    override val minutes: Int = 60
 
-  override def giveRewardTo(winner: UUID): Unit = {
-    HubPlayer.get(winner).bank.getShardWallet.deposit(lottery.getTotal)
-  }
+    override def giveRewardTo(winner: UUID): Unit = {
+        HubPlayer.get(winner).bank.getShardWallet.deposit(lottery.getTotal)
+    }
 
-  override def sendMessages(): Unit = {
-    
-  }
+    override def sendMessages(): Unit = {
+
+    }
 }

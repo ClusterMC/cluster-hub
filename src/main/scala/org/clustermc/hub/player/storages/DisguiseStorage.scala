@@ -16,14 +16,14 @@ import org.clustermc.hub.player.HubPlayer
 
 class DisguiseStorage(uuid: UUID) {
 
-  val disguises: Set[DisguiseEnum] = Set()
+    val disguises: Set[DisguiseEnum] = Set()
 
-  def has(disguise: DisguiseEnum): Boolean = {
-    disguises.contains(disguise)
-  }
+    def has(disguise: DisguiseEnum): Boolean = {
+        disguises.contains(disguise)
+    }
 
-  def buy(disguise: DisguiseEnum): Boolean = {
-    HubPlayer.get(uuid).bank.getClusterWallet.withdraw(disguise.getCost)
-  }
+    def buy(disguise: DisguiseEnum): Boolean = {
+        HubPlayer.get(uuid).bank.getClusterWallet.withdraw(disguise.getCost)
+    }
 
 }

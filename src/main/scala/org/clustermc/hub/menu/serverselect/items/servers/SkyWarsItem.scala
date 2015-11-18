@@ -13,6 +13,6 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object SkyWarsItem extends ServerTransportItem("skywars"){
-  val item = new ItemFactory(Material.GRASS).setDisplayName("Island Battle").getItemStack
+object SkyWarsItem extends ServerTransportItem("skywars") {
+    val item = new ItemFactory(Material.GRASS).setDisplayName("Island Battle").getItemStack
 }

@@ -17,13 +17,13 @@ import org.clustermc.lib.bungee.ServerTeleport
  * permission of the aforementioned owner.
  */
 
-abstract class ServerTransportItem(server: String) extends InvItem{
+abstract class ServerTransportItem(server: String) extends InvItem {
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    if(HubPlayer.get(player.getUniqueId).useRift.value.get)
-      TeleportationRift.open(player, server)
-    else
-      ServerTeleport.tpToServer(Hub.instance, player, server)
-  }
+    override def act(player: Player, clickType: ClickType): Unit = {
+        if(HubPlayer.get(player.getUniqueId).useRift.value.get)
+            TeleportationRift.open(player, server)
+        else
+            ServerTeleport.tpToServer(Hub.instance, player, server)
+    }
 
 }

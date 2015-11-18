@@ -13,18 +13,18 @@ import org.clustermc.hub.hotbar.Hotbar
  * permission of the aforementioned owner.
  */
 
-class InteractEvent extends Listener{
+class InteractEvent extends Listener {
 
-  @EventHandler
-  def onClick(event: PlayerInteractEvent) {
-    if (!event.hasItem || !event.getAction.name.contains("CLICK")) {
-      return
+    @EventHandler
+    def onClick(event: PlayerInteractEvent) {
+        if(!event.hasItem || !event.getAction.name.contains("CLICK")) {
+            return
+        }
+        event.setCancelled(true)
+        val name: String = event.getPlayer.getMetadata("inventory").get(0).asString
+        if(name != null && !(name == "")) {
+            Hotbar.get(name).use(event.getPlayer, event.getPlayer.getInventory.getHeldItemSlot, event.getAction)
+        }
     }
-    event.setCancelled(true)
-    val name: String = event.getPlayer.getMetadata("inventory").get(0).asString
-    if (name != null && !(name == "")) {
-      Hotbar.get(name).use(event.getPlayer, event.getPlayer.getInventory.getHeldItemSlot, event.getAction)
-    }
-  }
 
 }

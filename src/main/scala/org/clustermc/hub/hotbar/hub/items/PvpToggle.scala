@@ -16,15 +16,15 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object PvpToggle extends HotbarItem{
-  override val stack: ItemStack = new ItemFactory(Material.DIAMOND_SWORD)
-    .setDisplayName("PvP Toggle / R-Click for class selection").getItemStack
+object PvpToggle extends HotbarItem {
+    override val stack: ItemStack = new ItemFactory(Material.DIAMOND_SWORD)
+        .setDisplayName("PvP Toggle / R-Click for class selection").getItemStack
 
-  override def click(player: Player, action: Action): Unit = {
-    if(action.name().contains("RIGHT")){
+    override def click(player: Player, action: Action): Unit = {
+        if(action.name().contains("RIGHT")) {
 
-    }else if (action.name().contains("LEFT")){
+        } else if(action.name().contains("LEFT")) {
 
+        }
     }
-  }
 }

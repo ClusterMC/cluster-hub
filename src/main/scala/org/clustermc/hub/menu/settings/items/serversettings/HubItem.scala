@@ -18,12 +18,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object HubItem extends InvItem{
-  val item = new ItemFactory(Material.MINECART).setDisplayName("Server Lobby").setLore(new util.ArrayList[String](
-    util.Arrays.asList("Select The Lobby/Hub Server", "As your server to login to when", "You connect to our server")))
-    .getItemStack
+object HubItem extends InvItem {
+    val item = new ItemFactory(Material.MINECART).setDisplayName("Server Lobby").setLore(new util.ArrayList[String](
+        util.Arrays.asList("Select The Lobby/Hub Server", "As your server to login to when", "You connect to our server")))
+        .getItemStack
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    HubPlayer.get(player.getUniqueId).loginServer.value = "Hub"
-  }
+    override def act(player: Player, clickType: ClickType): Unit = {
+        HubPlayer.get(player.getUniqueId).loginServer.value = "Hub"
+    }
 }

@@ -13,9 +13,9 @@ import org.clustermc.hub.menu.settings.items.submenuitems.SettingsMenuItem
  * permission of the aforementioned owner.
  */
 
-object LoginServerSettingsMenu extends Menu("Login Server", 9){
-  setItem(4, HubItem)
-  setItem(6, SkyWarsItem)
+object LoginServerSettingsMenu extends Menu("Login Server", 9) {
+    setItem(4, HubItem)
+    setItem(6, SkyWarsItem)
 
-  setItem(1, SettingsMenuItem)
+    setItem(1, SettingsMenuItem)
 }

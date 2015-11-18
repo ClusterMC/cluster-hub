@@ -19,14 +19,14 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object LoginServerMenuItem extends SubMenuInvItem{
-  override val item: ItemStack = new ItemFactory(Material.COMPASS)
-    .setDisplayName("Login Server")
-    .setLore(0, "Choose the lobby you want to join when")
-    .setLore(1, "You connect to the server")
-    .getItemStack
+object LoginServerMenuItem extends SubMenuInvItem {
+    override val item: ItemStack = new ItemFactory(Material.COMPASS)
+        .setDisplayName("Login Server")
+        .setLore(0, "Choose the lobby you want to join when")
+        .setLore(1, "You connect to the server")
+        .getItemStack
 
-  override def menu(player: Player): Menu = LoginServerSettingsMenu
+    override def menu(player: Player): Menu = LoginServerSettingsMenu
 
-  override def canOpen(uuid: UUID): Boolean = true
+    override def canOpen(uuid: UUID): Boolean = true
 }

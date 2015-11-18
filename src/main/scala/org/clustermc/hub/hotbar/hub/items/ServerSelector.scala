@@ -17,8 +17,8 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object ServerSelector extends HotbarItem{
-  override val stack: ItemStack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack
+object ServerSelector extends HotbarItem {
+    override val stack: ItemStack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack
 
-  override def click(player: Player, action: Action): Unit = ServerSelectionMenu.showTo(player)
+    override def click(player: Player, action: Action): Unit = ServerSelectionMenu.showTo(player)
 }

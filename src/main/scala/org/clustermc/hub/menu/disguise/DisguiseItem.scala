@@ -18,13 +18,13 @@ import org.clustermc.hub.player.HubPlayer
  * permission of the aforementioned owner.
  */
 
-class DisguiseItem(disguise: DisguiseEnum) extends InvItem{
-  override val item: ItemStack = disguise.itemstack()
+class DisguiseItem(disguise: DisguiseEnum) extends InvItem {
+    override val item: ItemStack = disguise.itemstack()
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    val hplayer = HubPlayer.get(player.getUniqueId)
-    if(hplayer.boughtDisguises.has(disguise)){
-      DisguiseAPI.disguiseToAll(player, new MobDisguise(disguise.getType/*, disguise.getAdult*/))//TODO
+    override def act(player: Player, clickType: ClickType): Unit = {
+        val hplayer = HubPlayer.get(player.getUniqueId)
+        if(hplayer.boughtDisguises.has(disguise)) {
+            DisguiseAPI.disguiseToAll(player, new MobDisguise(disguise.getType /*, disguise.getAdult*/)) //TODO
+        }
     }
-  }
 }

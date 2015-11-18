@@ -12,13 +12,13 @@ import org.bukkit.event.{EventHandler, Listener}
  * permission of the aforementioned owner.
  */
 
-class DropItemEvent extends Listener{
+class DropItemEvent extends Listener {
 
-  @EventHandler
-  def onDrop(event: PlayerDropItemEvent): Unit = {
-    if(!event.getPlayer.isOp){
-      event.setCancelled(true)
+    @EventHandler
+    def onDrop(event: PlayerDropItemEvent): Unit = {
+        if(!event.getPlayer.isOp) {
+            event.setCancelled(true)
+        }
     }
-  }
 
 }

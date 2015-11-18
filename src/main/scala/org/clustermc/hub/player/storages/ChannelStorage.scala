@@ -28,9 +28,9 @@ class ChannelStorage(val player: Player) {
                 case s: String =>
                     val cOption = Channel.get(s)
                     if(cOption.isDefined) subscribe(cOption.get)
-                    else player.sendMessage(s"${ChatColor.GOLD}$s ${ChatColor.RED}does not exist.")
+                    else player.sendMessage(s"${ChatColor.GOLD }$s ${ChatColor.RED }does not exist.")
                 case c: Channel => subscribe(c)
-                case _ => player.sendMessage(s"${ChatColor.RED}You cannot subscribe to a channel that doesn't exist.")
+                case _ => player.sendMessage(s"${ChatColor.RED }You cannot subscribe to a channel that doesn't exist.")
             }
         }
     }
@@ -49,9 +49,9 @@ class ChannelStorage(val player: Player) {
                 case s: String =>
                     val channel = Channel.get(s)
                     if(channel.isDefined) unsubscribe(channel.get)
-                    else player.sendMessage(s"${ChatColor.GOLD}$s ${ChatColor.RED}does not exist.")
+                    else player.sendMessage(s"${ChatColor.GOLD }$s ${ChatColor.RED }does not exist.")
                 case c: Channel => unsubscribe(c)
-                case _ =>  player.sendMessage(s"${ChatColor.RED}You cannot leave to a channel that doesn't exist.")
+                case _ => player.sendMessage(s"${ChatColor.RED }You cannot leave to a channel that doesn't exist.")
             }
         }
     }

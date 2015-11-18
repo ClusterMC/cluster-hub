@@ -15,14 +15,14 @@ import org.clustermc.hub.player.HubPlayer
  * permission of the aforementioned owner.
  */
 
-class SettingsMenu(player: Player) extends Menu("Cluster Settings", 36){
-  val ply = HubPlayer.get(player.getUniqueId)
+class SettingsMenu(player: Player) extends Menu("Cluster Settings", 36) {
+    val ply = HubPlayer.get(player.getUniqueId)
 
-  setItem(0,1, new ChatMention(ply.chatMention.value.get))
-  setItem(0,7, new UseRift(ply.useRift.value.get))
+    setItem(0, 1, new ChatMention(ply.chatMention.value.get))
+    setItem(0, 7, new UseRift(ply.useRift.value.get))
 
-  setItem(1,4, LoginServerMenuItem)
+    setItem(1, 4, LoginServerMenuItem)
 
-  setItem(2,2, new ReceiveMessages(ply.receiveMessages.value.get))
-  setItem(2,6, new ShowPlayers(ply.showPlayers.value.get))
+    setItem(2, 2, new ReceiveMessages(ply.receiveMessages.value.get))
+    setItem(2, 6, new ShowPlayers(ply.showPlayers.value.get))
 }

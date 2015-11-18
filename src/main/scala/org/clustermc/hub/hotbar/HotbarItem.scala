@@ -17,25 +17,27 @@ import org.clustermc.lib.utils.ItemFactory
  */
 
 abstract class HotbarItem {
-  val stack: ItemStack
-  def click(player: Player, action: Action)
+    val stack: ItemStack
+
+    def click(player: Player, action: Action)
 }
 
-object Air extends HotbarItem{
-  override val stack: ItemStack = new ItemStack(Material.AIR)
-  override def click(player: Player, action: Action): Unit = {}
+object Air extends HotbarItem {
+    override val stack: ItemStack = new ItemStack(Material.AIR)
+
+    override def click(player: Player, action: Action): Unit = {}
 }
 
-object ReturnToMain extends HotbarItem{
+object ReturnToMain extends HotbarItem {
 
-  override val stack: ItemStack = new ItemFactory(Material.COMPASS)
-    .setDisplayName("Return To Main Hotbar Menu")
-    .getItemStack
+    override val stack: ItemStack = new ItemFactory(Material.COMPASS)
+        .setDisplayName("Return To Main Hotbar Menu")
+        .getItemStack
 
-  override def click(player: Player, action: Action): Unit = {
-    if (action.name.contains("RIGHT"))
-      Hotbar.get(MainHubHotbar.getClass.getSimpleName).send(player)
-  }
+    override def click(player: Player, action: Action): Unit = {
+        if(action.name.contains("RIGHT"))
+            Hotbar.get(MainHubHotbar.getClass.getSimpleName).send(player)
+    }
 }
 
 /*object HotbarItem {

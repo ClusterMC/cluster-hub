@@ -17,9 +17,9 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object FunStuff extends HotbarItem{
-  override val stack: ItemStack = new ItemFactory(Material.FIREWORK).setDisplayName("Fun Things").getItemStack
+object FunStuff extends HotbarItem {
+    override val stack: ItemStack = new ItemFactory(Material.FIREWORK).setDisplayName("Fun Things").getItemStack
 
-  override def click(player: Player, action: Action): Unit = FunStuffMenu.showTo(player)
+    override def click(player: Player, action: Action): Unit = FunStuffMenu.showTo(player)
 
 }

@@ -15,7 +15,8 @@ import org.clustermc.hub.menu.SubMenuInvItem
  * permission of the aforementioned owner.
  */
 
-abstract class DisguiseSubMenuItem(disguise: DisguiseEnum) extends SubMenuInvItem{
-  override def canOpen(uuid: UUID): Boolean = true
-  override val item: ItemStack = disguise.itemstack()
+abstract class DisguiseSubMenuItem(disguise: DisguiseEnum) extends SubMenuInvItem {
+    override val item: ItemStack = disguise.itemstack()
+
+    override def canOpen(uuid: UUID): Boolean = true
 }

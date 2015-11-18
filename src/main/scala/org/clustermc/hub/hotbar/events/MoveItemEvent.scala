@@ -12,13 +12,13 @@ import org.bukkit.event.{EventHandler, Listener}
  * permission of the aforementioned owner.
  */
 
-class MoveItemEvent extends Listener{
+class MoveItemEvent extends Listener {
 
-  @EventHandler
-  def onTryMoveItem(event: InventoryClickEvent): Unit ={
-    if(!event.getWhoClicked.isOp){
-      event.setCancelled(true)
+    @EventHandler
+    def onTryMoveItem(event: InventoryClickEvent): Unit = {
+        if(!event.getWhoClicked.isOp) {
+            event.setCancelled(true)
+        }
     }
-  }
 
 }

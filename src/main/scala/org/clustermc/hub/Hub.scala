@@ -17,41 +17,44 @@ import org.clustermc.lib.utils.{CustomConfig, Messages}
  * permission of the aforementioned owner.
  */
 
-class Hub extends JavaPlugin{
+class Hub extends JavaPlugin {
 
-  private var _mongoDB: MongoDB = null
-  private var _messages: Messages = null
-  private var _cooldowns: CooldownHandler = null
+    private var _mongoDB: MongoDB = null
+    private var _messages: Messages = null
+    private var _cooldowns: CooldownHandler = null
 
-  private var cooldownTask: BukkitTask = null
+    private var cooldownTask: BukkitTask = null
 
-  def database = _mongoDB
-  def msg = _messages
-  def cooldowns = _cooldowns
+    def database = _mongoDB
 
-  override def onEnable(): Unit ={
-    Hub._instance = this
-    _messages = new Messages(new CustomConfig(this.getDataFolder, "lang"))
-    _mongoDB = new MongoDB(new CustomConfig(this.getDataFolder, "db").getConfig)
-    _cooldowns = new CooldownHandler
+    def msg = _messages
 
-    ClusterLottery.startNew()
-    ShardLottery.startNew()
+    def cooldowns = _cooldowns
 
-    cooldownTask = getServer.getScheduler.runTaskTimerAsynchronously(this, new Runnable {
-      override def run(): Unit = _cooldowns.handleCooldowns()
-    }, 20L, 5L)
-  }
+    override def onEnable(): Unit = {
+        Hub._instance = this
+        _messages = new Messages(new CustomConfig(this.getDataFolder, "lang"))
+        _mongoDB = new MongoDB(new CustomConfig(this.getDataFolder, "db").getConfig)
+        _cooldowns = new CooldownHandler
 
-  override def onDisable(): Unit ={
-    HubPlayer.unloadAll()
-    Hub._instance = null
-    _mongoDB.getClient.close()
-    cooldownTask.cancel()
-  }
+        ClusterLottery.startNew()
+        ShardLottery.startNew()
+
+        cooldownTask = getServer.getScheduler.runTaskTimerAsynchronously(this, new Runnable {
+            override def run(): Unit = _cooldowns.handleCooldowns()
+        }, 20L, 5L)
+    }
+
+    override def onDisable(): Unit = {
+        HubPlayer.unloadAll()
+        Hub._instance = null
+        _mongoDB.getClient.close()
+        cooldownTask.cancel()
+    }
 }
 
-object Hub{
-  private var _instance: Hub = null
-  def instance: Hub = _instance
+object Hub {
+    private var _instance: Hub = null
+
+    def instance: Hub = _instance
 }

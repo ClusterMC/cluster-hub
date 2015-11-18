@@ -17,13 +17,13 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class ShowPlayers(value: Boolean) extends InvItem{
-  override val item: ItemStack = new ItemFactory(Material.THIN_GLASS)
-    .setDisplayName("Turn Player Visibility " +  (if(!value) "&a&lON" else "&c&lOFF"))
-    .getItemStack
+class ShowPlayers(value: Boolean) extends InvItem {
+    override val item: ItemStack = new ItemFactory(Material.THIN_GLASS)
+        .setDisplayName("Turn Player Visibility " + (if(!value) "&a&lON" else "&c&lOFF"))
+        .getItemStack
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    HubPlayer.get(player.getUniqueId).showPlayers.value = !value
-  }
+    override def act(player: Player, clickType: ClickType): Unit = {
+        HubPlayer.get(player.getUniqueId).showPlayers.value = !value
+    }
 
 }

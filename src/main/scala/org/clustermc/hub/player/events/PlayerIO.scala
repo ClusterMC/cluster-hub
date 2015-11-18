@@ -15,12 +15,12 @@ import org.clustermc.hub.player.HubPlayer
 //lol
 class PlayerIO extends Listener {
 
-  @EventHandler def login(event: PlayerLoginEvent): Unit =
-    HubPlayer.load(event.getPlayer.getUniqueId)
+    @EventHandler def login(event: PlayerLoginEvent): Unit =
+        HubPlayer.load(event.getPlayer.getUniqueId)
 
-  @EventHandler def kicked(event: PlayerKickEvent): Unit =
-    HubPlayer.unload(event.getPlayer.getUniqueId)
+    @EventHandler def kicked(event: PlayerKickEvent): Unit =
+        HubPlayer.unload(event.getPlayer.getUniqueId)
 
-  @EventHandler def disconnected(event: PlayerQuitEvent): Unit =
-    HubPlayer.unload(event.getPlayer.getUniqueId)
+    @EventHandler def disconnected(event: PlayerQuitEvent): Unit =
+        HubPlayer.unload(event.getPlayer.getUniqueId)
 }

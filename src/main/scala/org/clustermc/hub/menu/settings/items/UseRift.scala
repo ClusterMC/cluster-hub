@@ -17,14 +17,14 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class UseRift(value: Boolean) extends InvItem{
-  override val item: ItemStack = new ItemFactory(Material.SIGN)
-    .setDisplayName("Turn Selector Rift " +  (if(!value) "&a&lON" else "&c&lOFF"))
-    .setLore(0,"Toggle the rift that appears in the floor when you use your compass")
-    .getItemStack
+class UseRift(value: Boolean) extends InvItem {
+    override val item: ItemStack = new ItemFactory(Material.SIGN)
+        .setDisplayName("Turn Selector Rift " + (if(!value) "&a&lON" else "&c&lOFF"))
+        .setLore(0, "Toggle the rift that appears in the floor when you use your compass")
+        .getItemStack
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    HubPlayer.get(player.getUniqueId).useRift.value = !value
-  }
+    override def act(player: Player, clickType: ClickType): Unit = {
+        HubPlayer.get(player.getUniqueId).useRift.value = !value
+    }
 
 }

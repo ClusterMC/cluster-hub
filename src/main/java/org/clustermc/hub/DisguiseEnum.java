@@ -243,7 +243,7 @@ enum DisguiseEnum {
           DisguiseType.SQUID);
 
     private String       name;
-    private Material material;
+    private Material     material;
     private int          cost;
     private DisguiseType type;
 
@@ -254,10 +254,10 @@ enum DisguiseEnum {
         this.type = type;
     }
 
-    public ItemStack itemstack(){
+    public ItemStack itemstack() {
         return new ItemFactory(getMaterial())
                 .setDisplayName(getName())
-                .setLore(0,this.name())
+                .setLore(0, this.name())
                 .getItemStack();
     }
 }

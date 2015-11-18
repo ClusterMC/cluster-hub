@@ -19,14 +19,14 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class ChatMention(value: Boolean) extends InvItem{
-  override val item: ItemStack = new ItemFactory(Material.SIGN)
-    .setDisplayName("Turn Chat Mentions " +  (if(!value) "&a&lON" else "&c&lOFF")).setLore(new util.ArrayList[String](
-      util.Arrays.asList("Toggle the noise you hear when", "someone says your name in chat")))
-    .getItemStack
+class ChatMention(value: Boolean) extends InvItem {
+    override val item: ItemStack = new ItemFactory(Material.SIGN)
+        .setDisplayName("Turn Chat Mentions " + (if(!value) "&a&lON" else "&c&lOFF")).setLore(new util.ArrayList[String](
+        util.Arrays.asList("Toggle the noise you hear when", "someone says your name in chat")))
+        .getItemStack
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    HubPlayer.get(player.getUniqueId).chatMention.value = !value
-  }
+    override def act(player: Player, clickType: ClickType): Unit = {
+        HubPlayer.get(player.getUniqueId).chatMention.value = !value
+    }
 
 }

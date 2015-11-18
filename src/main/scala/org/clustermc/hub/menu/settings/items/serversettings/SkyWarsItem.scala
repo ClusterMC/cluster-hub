@@ -18,12 +18,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object SkyWarsItem extends InvItem{
-  val item = new ItemFactory(Material.GRASS).setDisplayName("Island Battle").setLore(new util.ArrayList[String](
-    util.Arrays.asList("Select Island Battle Server", "As your server to login to when", "You connect to our server")))
-    .getItemStack
+object SkyWarsItem extends InvItem {
+    val item = new ItemFactory(Material.GRASS).setDisplayName("Island Battle").setLore(new util.ArrayList[String](
+        util.Arrays.asList("Select Island Battle Server", "As your server to login to when", "You connect to our server")))
+        .getItemStack
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    HubPlayer.get(player.getUniqueId).loginServer.value = "SkyWars"
-  }
+    override def act(player: Player, clickType: ClickType): Unit = {
+        HubPlayer.get(player.getUniqueId).loginServer.value = "SkyWars"
+    }
 }

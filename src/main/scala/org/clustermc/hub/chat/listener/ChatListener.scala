@@ -33,11 +33,11 @@ class ChatListener extends Listener {
         }
 
         val _focused = focused.get
-        if(event.getFormat.contains("{channel}")) {
-            val format = s"${StringUtil.colorString(_focused.color) }${_focused.prefixOrName }${ChatColor.RESET }"
-            event.setFormat(event.getFormat.replace("{channel}", format))
-        } else {
-            event.setFormat(s"${ChatColor.GOLD }${_focused.name }${ChatColor.RESET }${event.getFormat }")
+        event.getFormat match {
+            case s: String if s.contains("{channel}") =>
+                val format = s"${StringUtil.colorString(_focused.color) }${_focused.prefixOrName }${ChatColor.RESET }"
+                event.setFormat(event.getFormat.replace("{channel}", format))
+            case _ => event.setFormat(s"${ChatColor.GOLD }${_focused.name }${ChatColor.RESET }${event.getFormat }")
         }
 
         //strip players

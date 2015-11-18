@@ -17,34 +17,34 @@ import scala.collection.immutable.TreeMap
  * permission of the aforementioned owner.
  */
 @throws[ArrayIndexOutOfBoundsException]
-abstract class Hotbar (val items: Array[HotbarItem]) {
+abstract class Hotbar(val items: Array[HotbarItem]) {
 
-  lazy val name: String = this.getClass.getSimpleName
+    lazy val name: String = this.getClass.getSimpleName
 
-  if(items.length != 9){
-    throw new ArrayIndexOutOfBoundsException
-  }
+    if(items.length != 9) {
+        throw new ArrayIndexOutOfBoundsException
+    }
 
-  def use(player: Player, slot: Int, action: Action): Unit = {
-    if(slot <= 8 && slot >= 0)
-      items(slot).click(player, action)
-  }
+    def use(player: Player, slot: Int, action: Action): Unit = {
+        if(slot <= 8 && slot >= 0)
+            items(slot).click(player, action)
+    }
 
-  def send(player: Player): Unit = {
-    for(i <- 0 to 8) player.getInventory.setItem(i, items(i).stack)
-    player.updateInventory()
-  }
+    def send(player: Player): Unit = {
+        for(i <- 0 to 8) player.getInventory.setItem(i, items(i).stack)
+        player.updateInventory()
+    }
 
 }
 
 object Hotbar {
 
-  private final val hotbars: Map[String, Hotbar] = TreeMap(
-    MainHubHotbar.getClass.getSimpleName -> MainHubHotbar,
-    PvPHotbar.getClass.getSimpleName -> PvPHotbar
+    private final val hotbars: Map[String, Hotbar] = TreeMap(
+        MainHubHotbar.getClass.getSimpleName -> MainHubHotbar,
+        PvPHotbar.getClass.getSimpleName -> PvPHotbar
 
-  )(CaseInsensitiveOrdered)
+    )(CaseInsensitiveOrdered)
 
-  def get(name: String): Hotbar = hotbars.get(name).get
+    def get(name: String): Hotbar = hotbars.get(name).get
 
 }

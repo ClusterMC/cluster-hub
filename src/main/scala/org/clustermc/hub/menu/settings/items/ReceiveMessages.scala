@@ -17,14 +17,14 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class ReceiveMessages(value: Boolean) extends InvItem{
-   override val item: ItemStack = new ItemFactory(Material.SIGN)
-     .setDisplayName("Turn Messages " +  (if(!value) "&a&lON" else "&c&lOFF"))
-     .setLore(0,"Toggle letting other players /msg you")
-     .getItemStack
+class ReceiveMessages(value: Boolean) extends InvItem {
+    override val item: ItemStack = new ItemFactory(Material.SIGN)
+        .setDisplayName("Turn Messages " + (if(!value) "&a&lON" else "&c&lOFF"))
+        .setLore(0, "Toggle letting other players /msg you")
+        .getItemStack
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    HubPlayer.get(player.getUniqueId).receiveMessages.value = !value
-  }
+    override def act(player: Player, clickType: ClickType): Unit = {
+        HubPlayer.get(player.getUniqueId).receiveMessages.value = !value
+    }
 
- }
+}

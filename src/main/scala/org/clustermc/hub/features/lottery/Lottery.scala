@@ -17,28 +17,29 @@ import org.clustermc.lib.utils.WeightedRandomCollection
 
 trait Lottery {
 
-  var lastWinner: UUID = null
-  val minutes: Int
-  var lottery: WeightedRandomCollection[UUID] = null
+    val minutes: Int
+    var lastWinner: UUID = null
+    var lottery: WeightedRandomCollection[UUID] = null
 
-  def startNew(): Unit ={
-    lottery = new WeightedRandomCollection[UUID]
-    Bukkit.getScheduler.runTaskLaterAsynchronously(Hub.instance, new Runnable {
-      override def run(): Unit = end()
-    }, 20/*tick*/ * 60/*seconds*/ * minutes/*minutes*/)
-  }
+    def startNew(): Unit = {
+        lottery = new WeightedRandomCollection[UUID]
+        Bukkit.getScheduler.runTaskLaterAsynchronously(Hub.instance, new Runnable {
+            override def run(): Unit = end()
+        }, 20 /*tick*/ * 60 /*seconds*/ * minutes /*minutes*/)
+    }
 
-  def pickWinner(): Unit = {
-    lastWinner = lottery.next()
-  }
+    def pickWinner(): Unit = {
+        lastWinner = lottery.next()
+    }
 
-  def giveRewardTo(winner: UUID)
-  def sendMessages(): Unit
+    def giveRewardTo(winner: UUID)
 
-  def end(): Unit = {
-    pickWinner()
-    giveRewardTo(lastWinner)
-    startNew()
-  }
+    def sendMessages(): Unit
+
+    def end(): Unit = {
+        pickWinner()
+        giveRewardTo(lastWinner)
+        startNew()
+    }
 
 }

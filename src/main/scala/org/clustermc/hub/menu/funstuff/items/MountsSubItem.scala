@@ -19,12 +19,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object MountsSubItem extends SubMenuInvItem{
-   override def menu(player: Player): Menu = new DisguiseMenu(player)
+object MountsSubItem extends SubMenuInvItem {
+    override val item: ItemStack = new ItemFactory(Material.SADDLE)
+        .setDisplayName("Mounts -- Coming Soon")
+        .getItemStack
 
-   override def canOpen(uuid: UUID): Boolean = false
+    override def menu(player: Player): Menu = new DisguiseMenu(player)
 
-   override val item: ItemStack = new ItemFactory(Material.SADDLE)
-     .setDisplayName("Mounts -- Coming Soon")
-     .getItemStack
- }
+    override def canOpen(uuid: UUID): Boolean = false
+}

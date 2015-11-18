@@ -17,17 +17,17 @@ import org.clustermc.lib.utils.Done
  * permission of the aforementioned owner.
  */
 @Done
-class RiftEnterListener extends Listener{
-  Bukkit.getServer.getPluginManager.registerEvents(this, Hub.instance)
+class RiftEnterListener extends Listener {
+    Bukkit.getServer.getPluginManager.registerEvents(this, Hub.instance)
 
-  @EventHandler
-  def onMove(event: PlayerMoveEvent): Unit ={
-    val uuid: UUID = event.getPlayer.getUniqueId
-    if(TeleportationRift.has(uuid)){
-      if(TeleportationRift.get(uuid)._2.contains(event.getPlayer.getLocation.getBlock.getLocation)){
-        TeleportationRift.use(uuid)
-      }
+    @EventHandler
+    def onMove(event: PlayerMoveEvent): Unit = {
+        val uuid: UUID = event.getPlayer.getUniqueId
+        if(TeleportationRift.has(uuid)) {
+            if(TeleportationRift.get(uuid)._2.contains(event.getPlayer.getLocation.getBlock.getLocation)) {
+                TeleportationRift.use(uuid)
+            }
+        }
     }
-  }
 
 }

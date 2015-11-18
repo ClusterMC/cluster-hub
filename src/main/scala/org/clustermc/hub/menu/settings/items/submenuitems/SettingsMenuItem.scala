@@ -19,12 +19,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object SettingsMenuItem extends SubMenuInvItem{
-  override val item: ItemStack = new ItemFactory(Material.BARRIER)
-    .setDisplayName("Return To Settings Menu")
-    .getItemStack
+object SettingsMenuItem extends SubMenuInvItem {
+    override val item: ItemStack = new ItemFactory(Material.BARRIER)
+        .setDisplayName("Return To Settings Menu")
+        .getItemStack
 
-  override def menu(player: Player): Menu = new SettingsMenu(player)
+    override def menu(player: Player): Menu = new SettingsMenu(player)
 
-  override def canOpen(uuid: UUID): Boolean = true
+    override def canOpen(uuid: UUID): Boolean = true
 }

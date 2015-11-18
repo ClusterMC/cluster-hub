@@ -12,7 +12,8 @@ import org.bukkit.inventory.ItemStack
  * permission of the aforementioned owner.
  */
 
-trait InvItem extends Item{
-  val item: ItemStack
-  override def stack = item
+trait InvItem extends Item {
+    val item: ItemStack
+
+    override def stack = item
 }

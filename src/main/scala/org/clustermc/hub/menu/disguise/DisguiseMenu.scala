@@ -12,11 +12,11 @@ import org.bukkit.entity.Player
  * permission of the aforementioned owner.
  */
 
-class DisguiseMenu(player: Player) extends Menu("Turn Into Your Favorite Creature", 27){
+class DisguiseMenu(player: Player) extends Menu("Turn Into Your Favorite Creature", 27) {
 
-  //Horses
+    //Horses
 
-  //Zombies
+    //Zombies
 
 
 }

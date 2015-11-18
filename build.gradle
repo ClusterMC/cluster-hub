@@ -14,13 +14,13 @@ sourceSets.main.java.srcDirs = []
 
 repositories {
     mavenCentral()
-    maven{
+    maven {
         url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
     }
-    maven{
+    maven {
         url = 'http://server.psmc.ca/repo/'
     }
-    maven{
+    maven {
         url = 'http://repo.dmulloy2.net/content/groups/public/'
     }
     mavenLocal()

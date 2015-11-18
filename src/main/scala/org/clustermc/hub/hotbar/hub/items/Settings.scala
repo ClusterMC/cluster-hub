@@ -18,8 +18,8 @@ import org.clustermc.lib.utils.{Done, ItemFactory}
  */
 @Done
 object Settings extends HotbarItem {
-  override val stack: ItemStack = new ItemFactory(Material.COMMAND)
-    .setDisplayName("Server Settings").getItemStack
+    override val stack: ItemStack = new ItemFactory(Material.COMMAND)
+        .setDisplayName("Server Settings").getItemStack
 
-  override def click(player: Player, action: Action): Unit = new SettingsMenu(player).showTo(player)
+    override def click(player: Player, action: Action): Unit = new SettingsMenu(player).showTo(player)
 }

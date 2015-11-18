@@ -19,12 +19,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object DisguiseSubItem extends SubMenuInvItem{
-  override def menu(player: Player): Menu = new DisguiseMenu(player)
+object DisguiseSubItem extends SubMenuInvItem {
+    override val item: ItemStack = new ItemFactory(Material.MONSTER_EGG)
+        .setDisplayName("Disguises")
+        .getItemStack
 
-  override def canOpen(uuid: UUID): Boolean = true
+    override def menu(player: Player): Menu = new DisguiseMenu(player)
 
-  override val item: ItemStack = new ItemFactory(Material.MONSTER_EGG)
-    .setDisplayName("Disguises")
-    .getItemStack
+    override def canOpen(uuid: UUID): Boolean = true
 }

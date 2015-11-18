@@ -17,17 +17,17 @@ import org.clustermc.hub.Hub
  * permission of the aforementioned owner.
  */
 
-trait SubMenuInvItem extends InvItem{
-  def menu(player: Player): Menu
+trait SubMenuInvItem extends InvItem {
+    def menu(player: Player): Menu
 
-  def canOpen(uuid: UUID): Boolean
+    def canOpen(uuid: UUID): Boolean
 
-  override def act(player: Player, clickType: ClickType): Unit = {
-    if(canOpen(player.getUniqueId)){
-      player.closeInventory()
-      Bukkit.getScheduler.scheduleSyncDelayedTask(Hub.instance, new Runnable() {
-        override def run(): Unit = if (player != null) { menu(player).showTo(player) }
-      }, 1)
+    override def act(player: Player, clickType: ClickType): Unit = {
+        if(canOpen(player.getUniqueId)) {
+            player.closeInventory()
+            Bukkit.getScheduler.scheduleSyncDelayedTask(Hub.instance, new Runnable() {
+                override def run(): Unit = if(player != null) {menu(player).showTo(player) }
+            }, 1)
+        }
     }
-  }
 }

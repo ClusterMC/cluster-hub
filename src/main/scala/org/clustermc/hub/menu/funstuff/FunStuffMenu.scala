@@ -12,9 +12,9 @@ import org.clustermc.hub.menu.funstuff.items.{DisguiseSubItem, GadgetsSubItem, M
  * permission of the aforementioned owner.
  */
 
-object FunStuffMenu extends Menu("Fun Stuff", 36){
-  setItem(1, DisguiseSubItem)
-  setItem(2, GadgetsSubItem)
-  setItem(3, MountsSubItem)
-  setItem(4, ParticlesSubItem)
+object FunStuffMenu extends Menu("Fun Stuff", 36) {
+    setItem(1, DisguiseSubItem)
+    setItem(2, GadgetsSubItem)
+    setItem(3, MountsSubItem)
+    setItem(4, ParticlesSubItem)
 }
