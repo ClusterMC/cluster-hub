@@ -3,12 +3,10 @@ package org.clustermc.hub.player
 import java.util.UUID
 
 import org.bson.Document
-import org.clustermc.hub.player.storages.{ChannelStorage, DisguiseStorage}
-import org.clustermc.hub.{Hub, PvPClass}
-import org.clustermc.lib.data.mutable.{BooleanSetting, SettingData}
-import org.clustermc.lib.econ.Bank
-import org.clustermc.lib.utils.Coordinator
-import org.clustermc.lib.utils.database.{MongoObject, PlayerWrapper}
+import org.clustermc.hub.PvPClass
+import org.clustermc.hub.player.storages.DisguiseStorage
+import org.clustermc.lib.data.values.mutable.{BooleanSetting, SettingData}
+import org.clustermc.lib.player.{ClusterPlayer, PlayerCoordinator}
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -19,13 +17,11 @@ import org.clustermc.lib.utils.database.{MongoObject, PlayerWrapper}
  * permission of the aforementioned owner.
  */
 
-class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId) with MongoObject {
+class HubPlayer(playerId: UUID) extends ClusterPlayer(playerId) {
 
     val loginServer: SettingData[String] = SettingData("Hub", "Hub", classOf[String])
-    val chatMention, useRift, showPlayers, receiveMessages = BooleanSetting(true, true)
+    val useRift = BooleanSetting(true, true)
     val boughtDisguises = new DisguiseStorage(playerId)
-    val channelStorage = new ChannelStorage(this.bukkitPlayer)
-    val bank: Bank = new Bank()
     var pvpClass: PvPClass = PvPClass.TANK
 
     override def toDocument: Document = {
@@ -43,42 +39,10 @@ class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId) with MongoObject
     override def getID: String = playerId.toString
 }
 
-object HubPlayer extends Coordinator[UUID, HubPlayer, UUID] {
-    val index = "uuid"
-    val collection = "playerdata"
-
-    override def unload(key: UUID): Unit = {
-        if(has(key)) {
-            get(key).channelStorage.subscribedChannels.foreach(c => c.leave(key))
-            get(key).save(Hub.instance.database)
-            remove(key)
-        }
-    }
-
-    override def unloadAll(): Unit = {
-        import org.clustermc.lib.utils.implicits.ClosureImplicits._
-        coordinatorMap.keySet().forEach {
-            (key: UUID) => {
-                get(key).channelStorage.subscribedChannels.foreach(c => c.leave(key))
-                get(key).save(Hub.instance.database)
-            }
-        }
-        coordinatorMap.clear()
-    }
-
-    override def get(uuid: UUID): HubPlayer = {
-        if(!has(uuid)) load(uuid)
-        super.get(uuid)
-    }
+object HubPlayer extends PlayerCoordinator[HubPlayer] {
 
     override def load(uuid: UUID): Unit = {
-        if(!has(uuid)) {
-            val player = new HubPlayer(uuid)
-            player.load(
-                Hub.instance.database.getCollections.getCollection(collection)
-                    .find(new Document(index, uuid.toString))
-                    .first())
-            player.channelStorage.setFocusedChannel(None)
-        }
+        //TODO
     }
+
 }

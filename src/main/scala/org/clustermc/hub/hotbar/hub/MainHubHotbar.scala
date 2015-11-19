@@ -1,7 +1,7 @@
 package org.clustermc.hub.hotbar.hub
 
 import org.clustermc.hub.hotbar.hub.items._
-import org.clustermc.hub.hotbar.{Air, Hotbar}
+import org.clustermc.lib.gui.hotbar.{Air, Hotbar}
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

@@ -23,7 +23,7 @@ class DisguiseStorage(uuid: UUID) {
     }
 
     def buy(disguise: DisguiseEnum): Boolean = {
-        HubPlayer.get(uuid).bank.getClusterWallet.withdraw(disguise.getCost)
+        HubPlayer(uuid).bank.getClusterWallet.withdraw(disguise.getCost)
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.UUID
 
 import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.DisguiseEnum
-import org.clustermc.hub.menu.SubMenuInvItem
+import org.clustermc.lib.gui.menu.SubMenuInvItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

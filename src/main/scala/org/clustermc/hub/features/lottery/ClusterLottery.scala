@@ -17,7 +17,7 @@ object ClusterLottery extends Lottery {
     override val minutes: Int = 60 * 24
 
     override def giveRewardTo(winner: UUID): Unit = {
-        HubPlayer.get(winner).bank.getClusterWallet.deposit(lottery.getTotal)
+        HubPlayer(winner).bank.getClusterWallet.deposit(lottery.getTotal)
     }
 
     override def sendMessages(): Unit = {

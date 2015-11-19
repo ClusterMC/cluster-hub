@@ -18,7 +18,7 @@ object ShardLottery extends Lottery {
     override val minutes: Int = 60
 
     override def giveRewardTo(winner: UUID): Unit = {
-        HubPlayer.get(winner).bank.getShardWallet.deposit(lottery.getTotal)
+        HubPlayer(winner).bank.getShardWallet.deposit(lottery.getTotal)
     }
 
     override def sendMessages(): Unit = {

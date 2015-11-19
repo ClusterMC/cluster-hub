@@ -4,9 +4,9 @@ import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.clustermc.hub.Hub
 import org.clustermc.hub.features.rift.TeleportationRift
-import org.clustermc.hub.menu.InvItem
 import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.bungee.ServerTeleport
+import org.clustermc.lib.gui.menu.InvItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -20,7 +20,7 @@ import org.clustermc.lib.bungee.ServerTeleport
 abstract class ServerTransportItem(server: String) extends InvItem {
 
     override def act(player: Player, clickType: ClickType): Unit = {
-        if(HubPlayer.get(player.getUniqueId).useRift.value.get)
+        if(HubPlayer(player.getUniqueId).useRift.value.get)
             TeleportationRift.open(player, server)
         else
             ServerTeleport.tpToServer(Hub.instance, player, server)

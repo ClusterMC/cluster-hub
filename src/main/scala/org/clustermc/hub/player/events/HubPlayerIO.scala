@@ -1,7 +1,7 @@
-package org.clustermc.hub.hotbar.pvp
+package org.clustermc.hub.player.events
 
-import org.clustermc.hub.hotbar.ReturnToMain
-import org.clustermc.lib.gui.hotbar.{Air, Hotbar}
+import org.clustermc.hub.player.HubPlayer
+import org.clustermc.lib.player.event.PlayerIO
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -11,5 +11,5 @@ import org.clustermc.lib.gui.hotbar.{Air, Hotbar}
  * Hub can not be copied and/or distributed without the express
  * permission of the aforementioned owner.
  */
-
-object PvPHotbar extends Hotbar(Array(ReturnToMain, Air, Air, Air, Air, Air, Air, Air, Air))
+//lol
+class HubPlayerIO extends PlayerIO(HubPlayer)

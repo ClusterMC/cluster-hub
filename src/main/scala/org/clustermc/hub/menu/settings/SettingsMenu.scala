@@ -16,7 +16,7 @@ import org.clustermc.hub.player.HubPlayer
  */
 
 class SettingsMenu(player: Player) extends Menu("Cluster Settings", 36) {
-    val ply = HubPlayer.get(player.getUniqueId)
+    val ply = HubPlayer(player.getUniqueId)
 
     setItem(0, 1, new ChatMention(ply.chatMention.value.get))
     setItem(0, 7, new UseRift(ply.useRift.value.get))

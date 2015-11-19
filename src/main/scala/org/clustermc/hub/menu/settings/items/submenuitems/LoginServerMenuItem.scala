@@ -6,8 +6,8 @@ import io.mazenmc.menuapi.menu.Menu
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.menu.SubMenuInvItem
 import org.clustermc.hub.menu.settings.LoginServerSettingsMenu
+import org.clustermc.lib.gui.menu.SubMenuInvItem
 import org.clustermc.lib.utils.ItemFactory
 
 /*
