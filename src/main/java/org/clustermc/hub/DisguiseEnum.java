@@ -184,7 +184,7 @@ public enum DisguiseEnum {
                150,
                DisguiseType.PRIMED_TNT),
 
-    RABBIT("Bugs",
+    RABBIT("Bugs Bunny",
            Material.WOOD,
            150,
            DisguiseType.RABBIT),
