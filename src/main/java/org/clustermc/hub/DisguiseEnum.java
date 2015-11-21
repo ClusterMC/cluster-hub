@@ -234,7 +234,7 @@ public enum DisguiseEnum {
              150,
              DisguiseType.VILLAGER),
 
-    SQUID("Squid",
+    SQUID("Squid the 16-bit Butcher",
           Material.WOOD,
           9001,
           DisguiseType.SQUID);
