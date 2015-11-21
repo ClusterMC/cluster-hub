@@ -3,7 +3,7 @@ package org.clustermc.hub
 import org.bukkit.plugin.java.JavaPlugin
 import org.clustermc.hub.features.lottery.{ClusterLottery, ShardLottery}
 import org.clustermc.hub.player.HubPlayer
-import org.clustermc.lib.utils.{CustomConfig, Messages}
+import org.clustermc.lib.utils.CustomConfig
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
