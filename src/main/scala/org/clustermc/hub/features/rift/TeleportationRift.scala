@@ -46,8 +46,8 @@ object TeleportationRift {
 
     private def riftLocations(loc: Location): List[Location] = {
         val iter = new LocationIterator(loc.getWorld, loc.toVector, loc.clone.getDirection.setY(0), 0, 4)
-        val finalBlocks: List[Location] = List()
-        while(iter.hasNext) finalBlocks.::(iter.next().subtract(0, 1, 0))
+        var finalBlocks: List[Location] = List()
+        while(iter.hasNext) finalBlocks ::= iter.next().subtract(0, 1, 0)
         finalBlocks
     }
 
