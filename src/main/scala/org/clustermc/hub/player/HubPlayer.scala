@@ -5,8 +5,9 @@ import java.util.UUID
 import org.bson.Document
 import org.clustermc.hub.PvPClass
 import org.clustermc.hub.player.storages.DisguiseStorage
-import org.clustermc.lib.data.values.mutable.{BooleanSetting, SettingData}
-import org.clustermc.lib.player.{ClusterPlayer, PlayerCoordinator}
+import org.clustermc.lib.data.values.mutable.SettingData
+import org.clustermc.lib.data.values.mutable.SettingDataValues.BooleanSetting
+import org.clustermc.lib.player.storage.ClusterPlayer
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
