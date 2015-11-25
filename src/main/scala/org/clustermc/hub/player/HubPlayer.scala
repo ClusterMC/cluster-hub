@@ -7,7 +7,7 @@ import org.clustermc.hub.PvPClass
 import org.clustermc.hub.player.storages.DisguiseStorage
 import org.clustermc.lib.data.values.mutable.SettingData
 import org.clustermc.lib.data.values.mutable.impl.SettingDataValues.BooleanSetting
-import org.clustermc.lib.player.storage.ClusterPlayer
+import org.clustermc.lib.player.ClusterPlayer
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
