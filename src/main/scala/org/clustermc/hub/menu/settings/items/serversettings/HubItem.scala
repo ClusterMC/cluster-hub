@@ -24,6 +24,6 @@ object HubItem extends InvItem {
         .getItemStack
 
     override def act(player: Player, clickType: ClickType): Unit = {
-        HubPlayer(player.getUniqueId).loginServer.value = "Hub"
+        HubPlayer(player.getUniqueId).loginServer = "Hub"
     }
 }

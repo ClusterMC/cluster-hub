@@ -4,8 +4,8 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.gui.menu.InvItem
+import org.clustermc.lib.player.ClusterPlayer
 import org.clustermc.lib.utils.ItemFactory
 
 /*
@@ -23,7 +23,7 @@ class ShowPlayers(value: Boolean) extends InvItem {
         .getItemStack
 
     override def act(player: Player, clickType: ClickType): Unit = {
-        HubPlayer(player.getUniqueId).showPlayers.value = !value
+        ClusterPlayer(player.getUniqueId).showPlayers = !value
     }
 
 }

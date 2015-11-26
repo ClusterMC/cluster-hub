@@ -5,10 +5,12 @@ import java.util.UUID
 import org.bukkit.entity.Player
 import org.bukkit.{Bukkit, Location, Material}
 import org.clustermc.hub.Hub
+import org.clustermc.lib.ClusterLib
 import org.clustermc.lib.bungee.ServerTeleport
 import org.clustermc.lib.utils.Done
 import org.clustermc.lib.utils.cooldown.CooldownExecutor
 import org.clustermc.lib.utils.math.LocationIterator
+import org.clustermc.lib.utils.messages.Messages
 
 import scala.collection.mutable
 
@@ -34,13 +36,13 @@ object TeleportationRift {
     }
 
     def open(player: Player, server: String): Unit = {
-        if(!has(player.getUniqueId) && !Hub.instance.cooldowns.isCooling(player.getUniqueId, "rift")) {
-            Hub.instance.cooldowns.add(player.getUniqueId, "rift", 7, riftCloser)
+        if(!has(player.getUniqueId) && !ClusterLib.instance.cooldowns.isCooling(player.getUniqueId, "rift")) {
+            ClusterLib.instance.cooldowns.add(player.getUniqueId, "rift", 7, riftCloser)
             val blocks: List[Location] = riftLocations(player.getLocation)
             blocks.foreach(player.sendBlockChange(_, Material.ENDER_PORTAL, 0.toByte))
             openRifts.put(player.getUniqueId, (server, blocks))
         } else {
-            player.sendMessage(Hub.instance.msg.get("serverSelector.waitToUse"))
+            player.sendMessage(Messages("serverSelector.waitToUse"))
         }
     }
 

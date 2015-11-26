@@ -1,3 +1,4 @@
+package org.clustermc.hub;
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
  * 
@@ -7,5 +8,8 @@
  * permission of the aforementioned owner.
  */
 
-package org.clustermc.hub;
-//Because the only thing java is good for is enums.
+public enum PurchaseResult {
+    SUCCESS,
+    INVALID_FUNDS,
+    ALREADY_PURCHASED
+}

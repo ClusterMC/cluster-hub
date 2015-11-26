@@ -24,7 +24,7 @@ class UseRift(value: Boolean) extends InvItem {
         .getItemStack
 
     override def act(player: Player, clickType: ClickType): Unit = {
-        HubPlayer(player.getUniqueId).useRift.value = !value
+        HubPlayer(player.getUniqueId).useRift = !value
     }
 
 }

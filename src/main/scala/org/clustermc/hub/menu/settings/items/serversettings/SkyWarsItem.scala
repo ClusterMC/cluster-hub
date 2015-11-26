@@ -24,6 +24,6 @@ object SkyWarsItem extends InvItem {
         .getItemStack
 
     override def act(player: Player, clickType: ClickType): Unit = {
-        HubPlayer(player.getUniqueId).loginServer.value = "SkyWars"
+        HubPlayer(player.getUniqueId).loginServer = "SkyWars"
     }
 }

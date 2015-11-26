@@ -1,10 +1,9 @@
 package org.clustermc.hub
 
-import org.bukkit.Bukkit
-import org.bukkit.plugin.java.JavaPlugin
 import org.clustermc.hub.features.lottery.{ClusterLottery, ShardLottery}
 import org.clustermc.hub.player.HubPlayer
-import org.clustermc.lib.ClusterLib
+import org.clustermc.hub.player.events.HubPlayerIO
+import org.clustermc.lib.utils.ClusterServerPlugin
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -15,11 +14,10 @@ import org.clustermc.lib.ClusterLib
  * permission of the aforementioned owner.
  */
 
-class Hub extends JavaPlugin {
+class Hub extends ClusterServerPlugin("Hub") {
     override def onEnable(): Unit = {
         Hub._instance = this
-        Bukkit.getServer.getPluginManager.getPlugin("ClusterLib")
-        .asInstanceOf[ClusterLib].assign[HubPlayer]()
+        new HubPlayerIO
         ClusterLottery.startNew()
         ShardLottery.startNew()
     }
