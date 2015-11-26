@@ -34,8 +34,6 @@ trait Lottery {
 
     def giveRewardTo(winner: UUID)
 
-    def sendMessages(): Unit
-
     def end(): Unit = {
         pickWinner()
         giveRewardTo(lastWinner)
