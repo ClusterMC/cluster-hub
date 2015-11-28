@@ -1,4 +1,4 @@
-package org.clustermc.hub.hotbar.hub.items
+package org.clustermc.hub.main.hotbar.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player

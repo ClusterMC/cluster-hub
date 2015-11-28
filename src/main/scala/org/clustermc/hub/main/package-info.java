@@ -1,4 +1,3 @@
-package org.clustermc.hub;
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
  * 
@@ -8,7 +7,5 @@ package org.clustermc.hub;
  * permission of the aforementioned owner.
  */
 
-public enum PvPClass {
-    TANK,
-    ARCHER
-}
+package org.clustermc.hub.main;
+//TODO more acceptable package name

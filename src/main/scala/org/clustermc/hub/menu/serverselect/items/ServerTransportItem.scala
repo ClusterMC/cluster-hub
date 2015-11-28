@@ -3,8 +3,8 @@ package org.clustermc.hub.menu.serverselect.items
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import org.clustermc.hub.Hub
-import org.clustermc.hub.features.rift.TeleportationRift
 import org.clustermc.hub.player.HubPlayer
+import org.clustermc.hub.rift.TeleportationRift
 import org.clustermc.lib.bungee.ServerTeleport
 import org.clustermc.lib.gui.menu.InvItem
 

@@ -1,10 +1,10 @@
-package org.clustermc.hub.hotbar.hub.items
+package org.clustermc.hub.main.hotbar.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.menu.funstuff.FunStuffMenu
+import org.clustermc.hub.menu.serverselect.ServerSelectionMenu
 import org.clustermc.lib.gui.hotbar.HotbarItem
 import org.clustermc.lib.utils.ItemFactory
 
@@ -17,9 +17,8 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object FunStuff extends HotbarItem {
-    override val stack: ItemStack = new ItemFactory(Material.FIREWORK).setDisplayName("Fun Things").getItemStack
+object ServerSelector extends HotbarItem {
+    override val stack: ItemStack = new ItemFactory(Material.COMPASS).setDisplayName("Server Warper").getItemStack
 
-    override def click(player: Player, action: Action): Unit = FunStuffMenu.showTo(player)
-
+    override def click(player: Player, action: Action): Unit = ServerSelectionMenu.showTo(player)
 }

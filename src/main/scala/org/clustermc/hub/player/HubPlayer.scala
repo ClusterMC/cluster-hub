@@ -3,8 +3,8 @@ package org.clustermc.hub.player
 import java.util.UUID
 
 import com.mongodb.client.MongoCollection
+import com.mongodb.client.model.UpdateOptions
 import org.bson.Document
-import org.clustermc.hub.PvPClass
 import org.clustermc.hub.player.storages.DisguiseStorage
 import org.clustermc.lib.player.{PlayerCoordinator, PlayerWrapper}
 
@@ -18,26 +18,40 @@ import org.clustermc.lib.player.{PlayerCoordinator, PlayerWrapper}
  */
 
 class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId) {
-    //SETTINGS
-    var loginServer: String = "Hub"
-    var useRift = true
+  //SETTINGS
+  var loginServer: String = "Hub"
+  var useRift = true
 
-    //PURCHASES
-    val boughtDisguises = new DisguiseStorage(playerId)
+  //PURCHASES
+  val boughtDisguises = new DisguiseStorage(playerId)
 
-    //MISC
-    var pvpClass: PvPClass = PvPClass.TANK
+  override def save(database: MongoCollection[Document]): Unit = {
+    database.updateOne(new Document(HubPlayer.index, playerId), toDocument,
+      new UpdateOptions().upsert(true))
+  }
 
-    override def save(database: MongoCollection[Document]): Unit = ???
+  override def toDocument: Document = {
+    new Document()
+      .append("settings", new Document()
+        .append("loginServer", loginServer)
+        .append("useRift", useRift))
+      .append("disguises", boughtDisguises.serialize())
+  }
 
-    override def toDocument: Document = ???
-
-    override def load(doc: Document): Unit = ???
+  override def load(doc: Document): Unit = {
+    loginServer = doc.getString("settings.loginServer")
+    useRift = doc.getBoolean("useRift")
+    boughtDisguises.deserialize(doc.getString("disguises"))
+  }
 }
 
 object HubPlayer extends PlayerCoordinator[HubPlayer] {
 
-    override protected def beforeUnload(uuid: UUID): Unit = ???
+  override protected def beforeUnload(uuid: UUID): Unit = {
+    //Nothing yet
+  }
 
-    override protected def afterLoad(player: HubPlayer): Unit = ???
+  override protected def afterLoad(player: HubPlayer): Unit = {
+    //Nothing yet
+  }
 }

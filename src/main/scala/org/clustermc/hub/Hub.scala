@@ -1,6 +1,6 @@
 package org.clustermc.hub
 
-import org.clustermc.hub.features.lottery.{ClusterLottery, ShardLottery}
+import org.clustermc.hub.lottery.{ClusterLottery, ShardLottery}
 import org.clustermc.hub.player.HubPlayer
 import org.clustermc.hub.player.events.HubPlayerIO
 import org.clustermc.lib.utils.ClusterServerPlugin

@@ -1,4 +1,4 @@
-package org.clustermc.hub.features.lottery
+package org.clustermc.hub.lottery
 
 import java.util.UUID
 
@@ -15,13 +15,14 @@ import org.clustermc.lib.utils.messages.{Messages, MsgVar}
  * permission of the aforementioned owner.
  */
 
-object ClusterLottery extends Lottery {
-    override val minutes: Int = 60 * 24
+object ShardLottery extends Lottery {
+
+    override val minutes: Int = 60
 
     override def giveRewardTo(winner: UUID): Unit = {
         val player = ClusterPlayer(winner)
-        player.bank.getClusterWallet.deposit(lottery.getTotal)
-        Bukkit.getServer.broadcastMessage(Messages("lottery.cluster.winningAnnouncement",
+        player.bank.getShardWallet.deposit(lottery.getTotal)
+        Bukkit.getServer.broadcastMessage(Messages("lottery.shard.winningAnnouncement",
             MsgVar("{AMOUNT}", lottery.getTotal),
             MsgVar("{PLAYER}", player.latestName)))
     }

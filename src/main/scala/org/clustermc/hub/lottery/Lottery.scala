@@ -1,4 +1,4 @@
-package org.clustermc.hub.features.lottery
+package org.clustermc.hub.lottery
 
 import java.util.UUID
 

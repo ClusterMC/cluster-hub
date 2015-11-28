@@ -1,4 +1,4 @@
-package org.clustermc.hub.features.rift
+package org.clustermc.hub.rift
 
 import java.util.UUID
 

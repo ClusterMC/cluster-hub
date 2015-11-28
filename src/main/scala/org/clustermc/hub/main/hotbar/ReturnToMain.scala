@@ -1,10 +1,9 @@
-package org.clustermc.hub.hotbar
+package org.clustermc.hub.main.hotbar
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.hotbar.hub.MainHubHotbar
 import org.clustermc.lib.gui.hotbar.{Hotbar, HotbarItem}
 import org.clustermc.lib.utils.ItemFactory
 

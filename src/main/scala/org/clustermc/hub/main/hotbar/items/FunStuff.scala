@@ -1,9 +1,10 @@
-package org.clustermc.hub.hotbar.hub.items
+package org.clustermc.hub.main.hotbar.items
 
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
+import org.clustermc.hub.menu.funstuff.FunStuffMenu
 import org.clustermc.lib.gui.hotbar.HotbarItem
 import org.clustermc.lib.utils.ItemFactory
 
@@ -16,15 +17,9 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object PvpToggle extends HotbarItem {
-    override val stack: ItemStack = new ItemFactory(Material.DIAMOND_SWORD)
-        .setDisplayName("PvP Toggle / R-Click for class selection").getItemStack
+object FunStuff extends HotbarItem {
+    override val stack: ItemStack = new ItemFactory(Material.FIREWORK).setDisplayName("Fun Things").getItemStack
 
-    override def click(player: Player, action: Action): Unit = {
-        if(action.name().contains("RIGHT")) {
+    override def click(player: Player, action: Action): Unit = FunStuffMenu.showTo(player)
 
-        } else if(action.name().contains("LEFT")) {
-
-        }
-    }
 }

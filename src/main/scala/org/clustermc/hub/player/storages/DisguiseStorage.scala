@@ -16,7 +16,7 @@ import org.clustermc.lib.player.ClusterPlayer
 
 class DisguiseStorage(uuid: UUID) {
 
-    val disguises: Set[DisguiseEnum] = Set()
+    var disguises: Set[DisguiseEnum] = Set()
 
     def has(disguise: DisguiseEnum): Boolean = {
         disguises.contains(disguise)
@@ -32,11 +32,37 @@ class DisguiseStorage(uuid: UUID) {
             val bank = ClusterPlayer(uuid).bank.getClusterWallet
             if(bank.has(disguise.getCost)){
                 bank.withdraw(disguise.getCost)
+                unlock(disguise)
                 PurchaseResult.SUCCESS
             }else
                 PurchaseResult.INVALID_FUNDS
         }
         PurchaseResult.ALREADY_PURCHASED
+    }
+
+    private def unlock(disguise: DisguiseEnum): Boolean ={
+        if(!has(disguise)){
+            disguises += disguise
+            return true
+        }
+        false
+    }
+
+    def deserialize(input: String): Unit ={
+        if(input != "none"){
+            input.split(";").foreach(s => unlock(DisguiseEnum.valueOf(s)))
+        }
+    }
+
+    def serialize(): String ={
+        var string: String = ""
+        disguises.foreach(x => string += (x.name() + ";"))
+        if(string.length > 1){
+            string = new StringBuffer(string).deleteCharAt(string.length - 1).toString
+        }else{
+            string = "none"
+        }
+        string
     }
 
 }
