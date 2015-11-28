@@ -4,6 +4,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.block.Action
 import org.bukkit.inventory.ItemStack
+import org.clustermc.hub.pvp.hotbar.ClassSelectionHotbar
 import org.clustermc.lib.gui.hotbar.HotbarItem
 import org.clustermc.lib.utils.ItemFactory
 
@@ -20,7 +21,5 @@ object PvpToggle extends HotbarItem {
     override val stack: ItemStack = new ItemFactory(Material.DIAMOND_SWORD)
         .setDisplayName("PvP Toggle / R-Click for class selection").getItemStack
 
-    override def click(player: Player, action: Action): Unit = {
-
-    }
+    override def click(player: Player, action: Action): Unit = ClassSelectionHotbar.send(player)
 }

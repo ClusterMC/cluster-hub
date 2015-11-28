@@ -20,7 +20,7 @@ import org.clustermc.lib.gui.menu.InvItem
 abstract class ServerTransportItem(server: String) extends InvItem {
 
     override def act(player: Player, clickType: ClickType): Unit = {
-        if(HubPlayer(player.getUniqueId).useRift.value.get)
+        if(HubPlayer(player.getUniqueId).useRift)
             TeleportationRift.open(player, server)
         else
             ServerTeleport.tpToServer(Hub.instance, player, server)

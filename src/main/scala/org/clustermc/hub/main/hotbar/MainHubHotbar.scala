@@ -1,5 +1,6 @@
 package org.clustermc.hub.main.hotbar
 
+import org.clustermc.hub.main.hotbar.items.{FunStuff, PvpToggle, ServerSelector, Settings}
 import org.clustermc.lib.gui.hotbar.{Air, Hotbar}
 
 /*
