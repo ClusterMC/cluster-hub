@@ -1,4 +1,4 @@
-package org.clustermc.hub.funstuff.disguise.menu
+package org.clustermc.hub.disguise.menu
 
 import me.libraryaddict.disguise.DisguiseAPI
 import me.libraryaddict.disguise.disguisetypes.MobDisguise
@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack
 import org.clustermc.hub.DisguiseEnum
 import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.gui.menu.InvItem
+import org.clustermc.lib.utils.TitleAPI
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>
@@ -23,8 +24,12 @@ class DisguiseItem(disguise: DisguiseEnum) extends InvItem {
 
     override def act(player: Player, clickType: ClickType): Unit = {
         val hplayer = HubPlayer(player.getUniqueId)
-        if(hplayer.boughtDisguises.has(disguise)) {
+        if(hplayer.disguises.has(disguise)) {
+            player.closeInventory()
+            TitleAPI.sendTitle(player, 5, 40, 5, "Youre disguised as " + disguise.getName, "HAVE FUN!")
             DisguiseAPI.disguiseToAll(player, new MobDisguise(disguise.getType /*, disguise.getAdult*/)) //TODO
+        }else{
+
         }
     }
 }

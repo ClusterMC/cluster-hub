@@ -1,4 +1,4 @@
-package org.clustermc.hub.main.settingsmenu.items.submenuitems
+package org.clustermc.hub.main.funstuff.menu.items
 
 import java.util.UUID
 
@@ -6,7 +6,7 @@ import io.mazenmc.menuapi.menu.Menu
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.main.settingsmenu.LoginServerSettingsMenu
+import org.clustermc.hub.disguise.menu.DisguiseMenu
 import org.clustermc.lib.gui.menu.SubMenuInvItem
 import org.clustermc.lib.utils.ItemFactory
 
@@ -19,14 +19,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object LoginServerMenuItem extends SubMenuInvItem {
-    override val item: ItemStack = new ItemFactory(Material.COMPASS)
-        .setDisplayName("Login Server")
-        .setLore(0, "Choose the lobby you want to join when")
-        .setLore(1, "You connect to the server")
+object DisguiseSubItem extends SubMenuInvItem {
+    override val item: ItemStack = new ItemFactory(Material.MONSTER_EGG)
+        .setDisplayName("Disguises")
         .getItemStack
 
-    override def menu(player: Player): Menu = LoginServerSettingsMenu
+    override def menu(player: Player): Menu = new DisguiseMenu(player)
 
     override def canOpen(uuid: UUID): Boolean = true
 }

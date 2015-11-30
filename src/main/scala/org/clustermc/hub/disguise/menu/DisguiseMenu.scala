@@ -1,4 +1,4 @@
-package org.clustermc.hub.funstuff.disguise.menu
+package org.clustermc.hub.disguise.menu
 
 import io.mazenmc.menuapi.menu.Menu
 import org.bukkit.entity.Player

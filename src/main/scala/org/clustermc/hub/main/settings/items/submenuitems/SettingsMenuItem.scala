@@ -1,4 +1,4 @@
-package org.clustermc.hub.funstuff.menu.items
+package org.clustermc.hub.main.settings.items.submenuitems
 
 import java.util.UUID
 
@@ -6,7 +6,7 @@ import io.mazenmc.menuapi.menu.Menu
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.clustermc.hub.funstuff.disguise.menu.DisguiseMenu
+import org.clustermc.hub.main.settings.SettingsMenu
 import org.clustermc.lib.gui.menu.SubMenuInvItem
 import org.clustermc.lib.utils.ItemFactory
 
@@ -19,12 +19,12 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-object GadgetsSubItem extends SubMenuInvItem {
-    override val item: ItemStack = new ItemFactory(Material.CHEST)
-        .setDisplayName("Gadgets -- Coming Soon")
+object SettingsMenuItem extends SubMenuInvItem {
+    override val item: ItemStack = new ItemFactory(Material.BARRIER)
+        .setDisplayName("Return To Settings Menu")
         .getItemStack
 
-    override def menu(player: Player): Menu = new DisguiseMenu(player)
+    override def menu(player: Player): Menu = new SettingsMenu(player)
 
-    override def canOpen(uuid: UUID): Boolean = false
+    override def canOpen(uuid: UUID): Boolean = true
 }

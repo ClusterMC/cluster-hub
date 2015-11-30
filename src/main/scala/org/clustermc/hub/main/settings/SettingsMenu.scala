@@ -1,9 +1,9 @@
-package org.clustermc.hub.main.settingsmenu
+package org.clustermc.hub.main.settings
 
 import io.mazenmc.menuapi.menu.Menu
 import org.bukkit.entity.Player
-import org.clustermc.hub.main.settingsmenu.items.submenuitems.LoginServerMenuItem
-import org.clustermc.hub.main.settingsmenu.items.{ChatMention, ReceiveMessages, ShowPlayers, UseRift}
+import org.clustermc.hub.main.settings.items.settings.{ChatMention, ReceiveMessages, ShowPlayers, UseRift}
+import org.clustermc.hub.main.settings.items.submenuitems.LoginServerMenuItem
 import org.clustermc.hub.player.HubPlayer
 import org.clustermc.lib.player.ClusterPlayer
 

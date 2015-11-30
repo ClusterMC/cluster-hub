@@ -7,4 +7,4 @@
  * permission of the aforementioned owner.
  */
 
-package org.clustermc.hub.funstuff;
+package org.clustermc.hub.disguise;

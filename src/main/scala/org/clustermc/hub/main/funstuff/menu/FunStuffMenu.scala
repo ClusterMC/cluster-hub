@@ -1,7 +1,7 @@
-package org.clustermc.hub.funstuff.menu
+package org.clustermc.hub.main.funstuff.menu
 
 import io.mazenmc.menuapi.menu.Menu
-import org.clustermc.hub.funstuff.menu.items.{DisguiseSubItem, GadgetsSubItem, MountsSubItem, ParticlesSubItem}
+import org.clustermc.hub.main.funstuff.menu.items.{DisguiseSubItem, GadgetsSubItem, MountsSubItem, ParticlesSubItem}
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

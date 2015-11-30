@@ -1,11 +1,14 @@
-package org.clustermc.hub.main.settingsmenu.items
+package org.clustermc.hub.main.settings.items.settings
 
+import java.util.UUID
+
+import io.mazenmc.menuapi.menu.Menu
 import org.bukkit.Material
 import org.bukkit.entity.Player
-import org.bukkit.event.inventory.ClickType
 import org.bukkit.inventory.ItemStack
+import org.clustermc.hub.main.settings.items.{SettingChangeConfirmItem, SettingChangeConfirmMenu}
 import org.clustermc.hub.player.HubPlayer
-import org.clustermc.lib.gui.menu.InvItem
+import org.clustermc.lib.gui.menu.SubMenuInvItem
 import org.clustermc.lib.utils.ItemFactory
 
 /*
@@ -17,14 +20,16 @@ import org.clustermc.lib.utils.ItemFactory
  * permission of the aforementioned owner.
  */
 
-class UseRift(value: Boolean) extends InvItem {
+class UseRift(value: Boolean) extends SubMenuInvItem {
     override val item: ItemStack = new ItemFactory(Material.SIGN)
         .setDisplayName("Turn Selector Rift " + (if(!value) "&a&lON" else "&c&lOFF"))
         .setLore(0, "Toggle the rift that appears in the floor when you use your compass")
         .getItemStack
 
-    override def act(player: Player, clickType: ClickType): Unit = {
-        HubPlayer(player.getUniqueId).useRift = !value
-    }
+    override def menu(player: Player): Menu = new SettingChangeConfirmMenu(new SettingChangeConfirmItem {
+        override def happen(player: Player): Unit = HubPlayer(player.getUniqueId).useRift = !value
+    })
+
+    override def canOpen(uuid: UUID): Boolean = true
 
 }

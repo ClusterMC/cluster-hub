@@ -1,4 +1,4 @@
-package org.clustermc.hub.funstuff.disguise.menu
+package org.clustermc.hub.disguise.menu
 
 import java.util.UUID
 

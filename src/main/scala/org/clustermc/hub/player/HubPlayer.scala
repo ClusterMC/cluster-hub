@@ -23,7 +23,7 @@ class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId) {
   var useRift = true
 
   //PURCHASES
-  val boughtDisguises = new DisguiseStorage(playerId)
+  val disguises = new DisguiseStorage(playerId)
 
   override def save(database: MongoCollection[Document]): Unit = {
     database.updateOne(new Document(HubPlayer.index, playerId), toDocument,
@@ -35,13 +35,13 @@ class HubPlayer(playerId: UUID) extends PlayerWrapper(playerId) {
       .append("settings", new Document()
         .append("loginServer", loginServer)
         .append("useRift", useRift))
-      .append("disguises", boughtDisguises.serialize())
+      .append("disguises", disguises.serialize())
   }
 
   override def load(doc: Document): Unit = {
     loginServer = doc.getString("settings.loginServer")
     useRift = doc.getBoolean("useRift")
-    boughtDisguises.deserialize(doc.getString("disguises"))
+    disguises.deserialize(doc.getString("disguises"))
   }
 }
 

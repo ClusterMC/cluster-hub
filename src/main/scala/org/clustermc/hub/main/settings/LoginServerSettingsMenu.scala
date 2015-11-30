@@ -1,8 +1,8 @@
-package org.clustermc.hub.main.settingsmenu
+package org.clustermc.hub.main.settings
 
 import io.mazenmc.menuapi.menu.Menu
-import org.clustermc.hub.main.settingsmenu.items.serversettings.{HubItem, SkyWarsItem}
-import org.clustermc.hub.main.settingsmenu.items.submenuitems.SettingsMenuItem
+import org.clustermc.hub.main.settings.items.serversettings.{HubItem, SkyWarsItem}
+import org.clustermc.hub.main.settings.items.submenuitems.SettingsMenuItem
 
 /*
  * Copyright (C) 2013-Current Carter Gale (Ktar5) <buildfresh@gmail.com>

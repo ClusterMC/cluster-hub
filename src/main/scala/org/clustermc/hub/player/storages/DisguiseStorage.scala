@@ -18,6 +18,8 @@ class DisguiseStorage(uuid: UUID) {
 
     var disguises: Set[DisguiseEnum] = Set()
 
+    var doubClick = ()
+
     def has(disguise: DisguiseEnum): Boolean = {
         disguises.contains(disguise)
     }
