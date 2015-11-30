@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.{Bukkit, Material}
 import org.clustermc.lib.ClusterLib
 import org.clustermc.lib.gui.menu.{ConfirmMenu, InvItem}
-import org.clustermc.lib.utils.{ItemFactory, TitleAPI}
+import org.clustermc.lib.utils.ItemFactory
 
 import scala.collection.JavaConverters._
 
@@ -19,14 +19,14 @@ import scala.collection.JavaConverters._
  * permission of the aforementioned owner.
  */
 
-object DisguiseConfirmMenu extends ConfirmMenu("Are you sure you want to buy this?", DisguiseConfirmItem)
+class DisguiseConfirmMenu(item: DisguiseConfirmItem) extends ConfirmMenu("Are you sure you want to buy this?", item)
 
-object DisguiseConfirmItem extends InvItem{
+abstract class DisguiseConfirmItem extends InvItem{
 
   override def act(player: Player, clickType: ClickType): Unit ={
     if(clickType.isLeftClick){
       player.closeInventory()
-      TitleAPI.sendTitle(player, 5, 40, 5, "Woohoo! You unlocked a disguise!", "And have been disguised as it!")
+      happen(player)
     }else if(clickType.isRightClick){
       player.closeInventory()
       Bukkit.getScheduler.scheduleSyncDelayedTask(ClusterLib.instance, new Runnable() {
@@ -36,6 +36,8 @@ object DisguiseConfirmItem extends InvItem{
       }, 1)
     }
   }
+
+  def happen(player: Player): Unit
 
   override val item: ItemStack = new ItemFactory(Material.STAINED_GLASS_PANE)
     .setDurability(5)
